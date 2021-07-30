@@ -62,7 +62,7 @@ Sys.setenv(TEXINPUTS = getwd(),
 \end{frame}
 
 \begin{frame}[t]{Zusammenarbeit in der Pandemie}
-Wenn ihr in Gruppen arbeiten möchtet (Präsentation oder Hausarbeit), empfiehlt es sich Kollaborationsplattformen (z.B. Notion, Trello) oder Aufgabenmanager (z.B. To-Do-ist). Über \textbf{GitHub} funktioniert Dateienaustausch sehr gut (mehr dazu im Dezember), für Kommunikation ist es aber nicht geeignet. Alternativ kann ich euch auch in ILIAS eine Gruppe erstellen, in der ihr mit den Tools von \textbf{ILIAS} zusammen arbeiten könnt (z.B. Etherpad, Blog, Wiki, Forum etc.).
+Wenn ihr in Gruppen arbeiten möchtet (Präsentation oder Hausarbeit), empfiehlt es sich Kollaborationsplattformen (z.B. Notion, Trello) oder Aufgabenmanager (z.B. To-Do-ist). Über \shine{GitHub} funktioniert Dateienaustausch sehr gut (mehr dazu im Dezember), für Kommunikation ist es aber nicht geeignet. Alternativ kann ich euch auch in ILIAS eine Gruppe erstellen, in der ihr mit den Tools von \shine{ILIAS} zusammen arbeiten könnt (z.B. Etherpad, Blog, Wiki, Forum etc.).
 
 \end{frame}
 

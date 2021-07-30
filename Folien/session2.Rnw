@@ -60,7 +60,7 @@ Sys.setenv(TEXINPUTS=getwd(),
 \end{frame}
 
 \begin{frame}[t]{Heutige Agenda}
-\textbf{Grundlagentexte}
+\shine{Grundlagentexte}
 	\begin{itemize}
 		\item Easton, David (1975): A Re-Assessment of the Concept of Political Support, British Journal of Political Science, Vol 5, Nr. 4: 435-457.
 		\item Fuhse, Jan (2005): Theorien des politischen Systems. David Easton und Niklas Luhmann. Eine Einführung. Wiesbaden: VS Verlag für Sozialwissenschaften. (S. 20-63)
@@ -72,7 +72,7 @@ Sys.setenv(TEXINPUTS=getwd(),
 
 \begin{frame}[t]{4 Bilder \& Eastons Theorie}
 So wir haben jetzt Grundfragen geklärt. Dieses Wissen vertiefen wir nun angewandt. Jede Gruppe bekommt eins der vier Bilder zugeteilt, und soll frei assoziieren mit Eastons Theorie. \\
-\textbf{Zeit}: 15 Minuten; Präsentation in Plenum: 5 Minuten
+\shine{Zeit}: 15 Minuten; Präsentation in Plenum: 5 Minuten
 	\begin{columns}
 		\begin{column}{0.25\textwidth}
 			\begin{figure}[ht]
@@ -119,9 +119,9 @@ So wir haben jetzt Grundfragen geklärt. Dieses Wissen vertiefen wir nun angewan
 \end{frame}
 
 \begin{frame}[t]{Politisches System}
-\textbf{Definition:} \\ \pause
+\shine{Definition:} \\ \pause
 Interaktionen innerhalb einer Gesellschaft, die mit der autoritativen Allokation von Werten beschäftigt sind \parencite[129ff]{Easton1965}\\  \pause
-\textbf{Was sind Werte hier?} \\ \pause
+\shine{Was sind Werte hier?} \\ \pause
 materielle und ideelle Güter
 
 \end{frame}
@@ -151,17 +151,17 @@ Wohin richtet sich politische Unterstützung? \pause
 \end{frame}
 
 \begin{frame}[t]{Objekte politischer Unterstützung}
-\textbf{Entscheidungsträger:innen (authorities)} \\ \pause
+\shine{Entscheidungsträger:innen (authorities)} \\ \pause
 
-„They must engage in the \textbf{daily affairs} of a political system; they must be \textbf{recognized by most members} of the system as \textbf{having the responsibility for these matters}; and \textbf{their actions must be accepted as binding} most of the time by most of the member \textbf{as long as they act within the limits of their roles}“ \parencite[212]{Easton1965} \\ \pause
+„They must engage in the \shine{daily affairs} of a political system; they must be \shine{recognized by most members} of the system as \shine{having the responsibility for these matters}; and \shine{their actions must be accepted as binding} most of the time by most of the member \shine{as long as they act within the limits of their roles}“ \parencite[212]{Easton1965} \\ \pause
 
 z.B.: Kanzler:in, Fraktionsführer:in, Partei-Vorsitzende:r, Minister:in etc. 
 \end{frame}
 
 \begin{frame}[t]{Objekte politischer Unterstützung}
-\textbf{Regime} \\ \pause
+\shine{Regime} \\ \pause
 
-„The regime as \textbf{sets of constraints on political interaction} in all systems may be broken down into three components: \textbf{values} (goals and principles), \textbf{norms}, and \textbf{structure of authority}.“ \parencite[193]{Easton1965}\\ \pause
+„The regime as \shine{sets of constraints on political interaction} in all systems may be broken down into three components: \shine{values} (goals and principles), \shine{norms}, and \shine{structure of authority}.“ \parencite[193]{Easton1965}\\ \pause
 
 \textit{Values}: Ideologien (Demokratie, Kommunismus, Nationalsozialismus) \\ \pause
 
@@ -171,9 +171,9 @@ z.B.: Kanzler:in, Fraktionsführer:in, Partei-Vorsitzende:r, Minister:in etc.
 \end{frame}
 
 \begin{frame}[t]{Objekte politischer Unterstützung}
-\textbf{Politische Gemeinschaft (political community)} \\ \pause
+\shine{Politische Gemeinschaft (political community)} \\ \pause
 
-„In confining the idea of political community in this way, I do so in order to focus (…) on the group of members who are drawn together by the fact that \textbf{they participate in a common structure and a set of processes}, however tight or loose the ties may be.“ \parencite[178]{Easton1965} \\ \pause
+„In confining the idea of political community in this way, I do so in order to focus (…) on the group of members who are drawn together by the fact that \shine{they participate in a common structure and a set of processes}, however tight or loose the ties may be.“ \parencite[178]{Easton1965} \\ \pause
 
 z.B.: „Wir-Gefühl“, Nationalstolz, Verbundenheitsgefühl 
 
@@ -187,15 +187,15 @@ z.B.: „Wir-Gefühl“, Nationalstolz, Verbundenheitsgefühl
 \end{frame}
 
 \begin{frame}[t]{Legitimität \& Vertrauen}
-\textbf{Legitimacy} \\ 
+\shine{Legitimacy} \\ 
 Worin besteht die Hauptverknüpfung? Welche Form? Auf welche Objekte? \\ \pause
 
-\textbf{Trust} \\
+\shine{Trust} \\
 Worin unterscheidet sich \textit{trust} von \textit{legitimacy}? \\
 \end{frame}
 
 \begin{frame}[t]{Output \& Feedback}
-\textbf{Output} \\  \pause
+\shine{Output} \\  \pause
 \begin{itemize}
 	\item kollektiv bindende Entscheidungen, die im politischen System getroffen wurden \pause
 	\item Evaluierung durch Personen, davon abhängig neue Forderungen bzw. Unterstützung \pause

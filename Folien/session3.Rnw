@@ -62,7 +62,7 @@ Sys.setenv(TEXINPUTS = getwd(),
 \end{frame}
 
 \begin{frame}[t]{Heutige Agenda}
-\textbf{Grundlagentexte}
+\shine{Grundlagentexte}
 	\begin{itemize}
 		\item \cite{Almond1963}
 		\item \cite{Gabriel2009}
@@ -77,16 +77,16 @@ Wir gehen zuerst in Gruppen. Hier sollen Verständnisprobleme geklärt werden un
 	\item Welche Anknüpfungspunkte sehen Sie zu Eastons Theorie?
 \end{enumerate}
 
-\textbf{Zeit}: 15 Minuten.
+\shine{Zeit}: 15 Minuten.
 \end{frame}
 
 \begin{frame}[t]{Politische Kultur}
-\textbf{Wissenschaftliche Entwicklung}
+\shine{Wissenschaftliche Entwicklung}
 \begin{itemize}
 	\item Institutionentheorien und Modernisierungstheorien konnten nicht Zusammenbruch in Deutschland/Italien erklären bzw. die Nicht-Stabilität in Kolonien \pause
 \end{itemize}
 
-\textbf{Zusätzlicher Hintergrund}
+\shine{Zusätzlicher Hintergrund}
 \begin{itemize}
 	\item Kalter Krieg; Wie können (pro-)westliche Systeme stabil sein?
 	\item Verknüpfung von Systemtheorie mit Umfrageforschung
@@ -94,12 +94,12 @@ Wir gehen zuerst in Gruppen. Hier sollen Verständnisprobleme geklärt werden un
 \end{frame}
 
 \begin{frame}[t]{Politische Kultur}
-\textbf{Leitende Forschungsfrage}
+\shine{Leitende Forschungsfrage}
 \begin{itemize}
 	\item Wie lässt sich Stabilität/Wandel von Regimen erklären? \pause
 \end{itemize}
 
-\textbf{Annahmen / Hypothese}
+\shine{Annahmen / Hypothese}
 \begin{itemize}
 	\item stabil, wenn politische Strukturen (Institutionen etc.) mit politischer Kultur (Einstellung der Bevölkerung) kompatibel ist
 \end{itemize}
@@ -108,13 +108,13 @@ Wir gehen zuerst in Gruppen. Hier sollen Verständnisprobleme geklärt werden un
 \begin{frame}{Alltagsbegriff vs. Wissenschaftsbegriff}
 \begin{figure}[ht]
 	\includegraphics[width=\textwidth]{pics/s3-1.png}
-	\caption{\textbf{Ideenboard aus einem Seminar}}
+	\caption{\shine{Ideenboard aus einem Seminar}}
 \end{figure}
 
 \end{frame}
 
 \begin{frame}[t]{Politische Kultur}
-\textbf{Was ist politische Kultur?} \pause
+\shine{Was ist politische Kultur?} \pause
 \begin{itemize}
 	\item „The political culture of a nation is the particular distribution of \textit{patterns of orientation} toward \textit{political objects} among the members of the nation.“ \parencite[14]{Almond1963}	\pause
 	\item[$\Rightarrow$] Was ist also Kultur? \pause
@@ -159,7 +159,7 @@ Welcher Art können diese Orientierungen sein? \pause
 \end{frame}
 
 \begin{frame}[t]{Politische Objekte}
-\textbf{4 political objects} \pause
+\shine{4 political objects} \pause
 \begin{itemize}
 	\item allgemeine Einstellung gegenüber Aufbau und Struktur des politischen Systems (\textit{system as general object}) \pause
 	\item Einstellung gegenüber den Inputmöglichkeiten des politischen Systems (Einschätzung der Teilhabechancen der Bürger) (\textit{input objects}) \pause
@@ -243,12 +243,12 @@ Quelle: \cite[402]{Gabriel2009}
 
 
 \begin{frame}[t]{Power \& Responsiveness}
-\textbf{Power}
+\shine{Power}
 \begin{itemize}
 	\item effektives Regierungshandeln \pause
 \end{itemize}
 
-\textbf{Responsiveness}
+\shine{Responsiveness}
 \begin{itemize}
 	\item Notwendigkeit der Bindung des Handelns an Präferenzen der Bürger:innen
 \end{itemize}
@@ -276,7 +276,7 @@ Quelle: \cite[402]{Gabriel2009}
 	\item Mexiko: Mischtypus der parochial-partizipativen Kultur \pause
 \end{itemize}
 
-\textbf{Folgerungen}
+\shine{Folgerungen}
 \begin{itemize}
 	\item Politische Kultur in Deutschland und Italien immer noch tradiert von Vorkriegszeit \pause
 	\item Untertanenkultur mitverantwortlich für Schwäche / mangelnde Stabilität in Zwischenkriegszeit und Transformation zu Nationalsozialismus
@@ -332,16 +332,16 @@ Im Beispiel also z.B.
 \end{frame}
 
 \begin{frame}[t]{Projektidee}
-\textbf{Ausgangspunkt}: Unterschiedliche Entwicklungen in ehemals staatssozialistischen Ländern der EU (spätestens ab 2010)
+\shine{Ausgangspunkt}: Unterschiedliche Entwicklungen in ehemals staatssozialistischen Ländern der EU (spätestens ab 2010)
 
 \begin{itemize}
 	\item Polen, Ungarn (in Teilen Slowakei): Dekonsolidierungstendenzen
 	\item Baltikum: weiterhin stabile Demokratie (laut Indizes) \pause
 \end{itemize}
 
-\textbf{Frage}: Inwieweit geht unterschiedliche Entwicklung in den Staaten einher mit einer unterschiedlichen Entwicklung der politischen Kultur? \pause
+\shine{Frage}: Inwieweit geht unterschiedliche Entwicklung in den Staaten einher mit einer unterschiedlichen Entwicklung der politischen Kultur? \pause
 
-\textbf{Vorgehensweise}: Vergleich politischer Kultur über Zeit über Länder
+\shine{Vorgehensweise}: Vergleich politischer Kultur über Zeit über Länder
 
 \end{frame}
 

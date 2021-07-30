@@ -59,7 +59,7 @@ options(formatR.arrow = TRUE,
 \end{frame}
 
 \begin{frame}[t]{Termin}
-Wir treffen uns alle zwei Wochen an folgenden Uhrzeiten im \textbf{selben} Webex-Raum: \\
+Wir treffen uns alle zwei Wochen an folgenden Uhrzeiten im \shine{selben} Webex-Raum: \\
 	\begin{itemize}
 		\item 10:00 Uhr bis 11:30 Uhr 
 		\item 12:30 Uhr bis 14:00 Uhr
@@ -70,7 +70,7 @@ Wir treffen uns alle zwei Wochen an folgenden Uhrzeiten im \textbf{selben} Webex
 	\begin{center}
 		\begin{figure}[ht]
 			\includegraphics[width=\textwidth]{pics/pre1.png}
-			\caption{\textbf{BA-Stuidum}}
+			\caption{\textbf{BA-Studium}}
 		\end{figure}
 	\end{center}
 \end{frame}
@@ -78,7 +78,7 @@ Wir treffen uns alle zwei Wochen an folgenden Uhrzeiten im \textbf{selben} Webex
 \begin{frame}[t]{Seminarziel: BA}
 	\begin{figure}[ht]
 		\includegraphics[width=\textwidth]{pics/pre2.png}
-		\caption{\textbf{BA-Stuidum}}
+		\caption{\textbf{BA-Studium}}
 	\end{figure}
 \end{frame}
 
@@ -86,7 +86,7 @@ Wir treffen uns alle zwei Wochen an folgenden Uhrzeiten im \textbf{selben} Webex
 \begin{frame}[t]{Seminarziel: MA}
 	\begin{figure}[ht]
 		\includegraphics[width=\textwidth]{pics/pre3.png}
-		\caption{\textbf{BA-Stuidum}}
+		\caption{\textbf{BA-Studium}}
 	\end{figure}
 \end{frame}
 
@@ -99,7 +99,7 @@ Bei regelmäßiger und aktiver Teilnahme können Sie am Ende des Semesters: \\
 		\item eine selbstständig geplante empirische Analyse umsetzen (Studierende mit MAP)\pause
 	\end{itemize}
 
-\textbf{Wie viel Sie tatsächlich von diesem Kurs mitnehmen, hängt davon ab, wie viel Sie reingeben!}
+\shine{Wie viel Sie tatsächlich von diesem Kurs mitnehmen, hängt davon ab, wie viel Sie reingeben!}
 \end{frame}
 
 \begin{frame}[t]{Workload}
@@ -134,7 +134,7 @@ Bei regelmäßiger und aktiver Teilnahme können Sie am Ende des Semesters: \\
 \begin{frame}[t]{Wiederholungsprüfung}
 Allgemeine Bestimmungen über modularisierte Studiengänge: \\
 	\begin{itemize}
-		\item § 19 Abs. 2, AllB: Studierende müssen \textbf{Wiederholungstermine zum nächstmöglichen Termin} antreten und gelten insofern als angemeldet. Andernfalls gilt das Modul als endgültig nicht bestanden.
+		\item § 19 Abs. 2, AllB: Studierende müssen \shine{Wiederholungstermine zum nächstmöglichen Termin} antreten und gelten insofern als angemeldet. Andernfalls gilt das Modul als endgültig nicht bestanden.
 		\item § 22 Abs. 7, AllB: Thema der Hausarbeit darf gleich bleliben
 		\item § 9 Abs. 3 SpezO: 2 Wiederholungsprüfungen möglich; 1. Wiederholungsprüfung entspricht in Form, Umfang und Dauer der nicht bestandenen Prüfungsleistung
 		\item[$\Rightarrow$] Durchgefallen? 4-Wochen-Überarbeitungsfrist!
@@ -191,7 +191,7 @@ Eine \textit{Deadline} ist eine \textit{Deadline} ist eine \textit{Deadline}. \\
 
 Von Beginn der Veranstaltung sind die Abgabefristen kommuniziert, ich erwarte daher, dass diese eingehalten werden. Damit es für alle fair und gleich kommuniziert ist: Es gibt keine individuellen Verlängerungen.
 
-Deadline für die Hausarbeiten ist der \textbf{31.03.2022, 23:59 Uhr}. Es werden nur digitale Abgaben akzeptiert. Der Upload ist in ILIAS freigeschaltet. Die Hausarbeit muss als PDF hochgeladen werden, die Eigenständigkeitserklärung muss Teil dieses PDFs sein! Als zweite Datei muss das Skript aus dem Statistikprogramm hochgeladen werden. 
+Deadline für die Hausarbeiten ist der \shine{31.03.2022, 23:59 Uhr}. Es werden nur digitale Abgaben akzeptiert. Der Upload ist in ILIAS freigeschaltet. Die Hausarbeit muss als PDF hochgeladen werden, die Eigenständigkeitserklärung muss Teil dieses PDFs sein! Als zweite Datei muss das Skript aus dem Statistikprogramm hochgeladen werden. 
 
 \end{frame}
 
@@ -204,7 +204,7 @@ Deadline für die Hausarbeiten ist der \textbf{31.03.2022, 23:59 Uhr}. Es werden
 \end{frame}
 
 \begin{frame}[t]{Sitzungen}
-\textbf{Was erwarte ich als Dozent?}
+\shine{Was erwarte ich als Dozent?}
 
 	\begin{itemize}
 		\item Lesen/Vorbereiten der Texte, auch wenn man den Text nicht vorstellt
@@ -212,7 +212,7 @@ Deadline für die Hausarbeiten ist der \textbf{31.03.2022, 23:59 Uhr}. Es werden
 		\item respektvoller Umgang miteinander (vor allem bei der Vorstellung von Projektideen)
 		\item Kursmaterialien alle über ILIAS erhältlich
 		\item keine Sonderregelungen, für alle gelten gleiche Regelungen und Deadlines
-		\item In der Ansprache ziehe ich das \textbf{Du} vor
+		\item In der Ansprache ziehe ich das \shine{Du} vor
 		\item[$\Rightarrow$] meine Rolle: Unterstützer/Helfer, aber \underline{nicht} Motivator, Erzieher oder neuer bester Freund
 	\end{itemize}
 \end{frame}
@@ -334,7 +334,7 @@ Führe dort die Umfrage aus!
 
 \begin{frame}[t]{SPSS-Zugang}
 	\begin{itemize}
-		\item Falls Sie einen Zugang zu SPSS benötigen, schreiben Sie mir bis \textbf{Mittwochabend 18 Uhr} eine E-Mail (Name \& s-Kennung) von ihrer Uni-E-Mail-Adresse
+		\item Falls Sie einen Zugang zu SPSS benötigen, schreiben Sie mir bis \shine{Mittwochabend 18 Uhr} eine E-Mail (Name \& s-Kennung) von ihrer Uni-E-Mail-Adresse
 		\item Für Sie wird der VPN-Zugang aktiviert, und wenn Sie sich mit dem VPN-Zugang verbinden, können Sie SPSS von Zuhause aus nutzen (Installation des Programms vorausgesetzt). 
 	\end{itemize}
 \end{frame}
