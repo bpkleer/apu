@@ -1,0 +1,543 @@
+\documentclass[9pt]{beamer}
+% Packages
+\usepackage{beamer-german}
+
+% Title etc.
+\title{\textsc{Korrelation \& Mittelwertvergleiche}}
+\subtitle{Analyse politischer Unterstützung in der quantitativen Forschungspraxis}
+\date{26. November 2021}
+\author{B. Philipp Kleer}
+\institute{Institut für Politikwissenschaft | Justus-Liebig-Universität Gießen}
+
+\setbeamerfont{itemize/enumerate body}{size = \small}
+\setbeamerfont{itemize/enumerate subbody}{size = \footnotesize}
+\setbeamerfont{itemize/enumerate subsubbody}{size = \scriptsize}
+
+\hypersetup{
+    colorlinks=true,
+    filecolor=Purple,    
+    linkcolor = orange,  
+    urlcolor= orange,
+    citecolor = black
+}
+
+% Datumspaket
+\usepackage[german]{isodate}
+
+% Table packages
+\usepackage{booktabs}
+\usepackage{longtable}
+
+% bibtex-file
+\usepackage[backend=biber]{biblatex}
+\addbibresource{lit-s6.bib} 
+
+% automatischer Linebreak
+\XeTeXlinebreaklocale
+%flexibler Zeichenabstand
+\XeTeXlinebreakskip = 0pt plus 1pt
+%Abstand zwischen Absätzen
+\setlength{\parskip}{0.10cm}
+%Zeilenabstand
+\linespread{1.2}\selectfont
+
+\begin{document}
+% knitr Setup
+<<setup, include = FALSE, cache = FALSE>>=
+library("knitr")
+
+# set global chunk options
+opts_chunk$set(fig.path = 'pics/s6-', # path for calculated figures
+               fig.align = 'center',  # alignment of figure (also possible right, left, default)
+               fig.show = 'hold', # how to show figures: hold -> direct at the end of code chunk; animate: all plots in an animation
+               fig.width = 3,   # figure width
+               fig.height = 4,  # figure height
+               echo = TRUE,     # Code is printed
+               eval = FALSE,    # Code is NOT evaluated
+               warning = FALSE, # warnings are NOT displayed
+               message = FALSE, # messages are NOT displayed
+               size = "scriptsize",  # latex-size of code chunks
+               background = "#E7E7E7", # background color of code chunks
+               comment = "", # no hashtags before output
+               tidy.opts = list(width.cutoff = 25),
+               options(width = 60)
+)
+
+system (paste ("biber", sub ("\\.Rnw$", "", current_input())))
+
+setwd("C:/Users/g31442/Documents/JLUG/Lehre/21_22 WiSe/APU/Slides")
+Sys.setenv(TEXINPUTS = getwd(),
+           BIBINPUTS = getwd(),
+           BSTINPUTS = getwd(),
+           BCFINPUTS = getwd())
+
+essat <- readRDS("C:/Users/g31442/Documents/JLUG/Lehre/21_22 WiSe/APU/Slides/data/essat.rds")
+@
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{To Do's}
+    \begin{itemize}
+       \item Wozu brauchen wir bivariate Analysen? 
+       \item Was misst die Korrelation?
+       \item Was berechnet ein Mittelwertvergleich?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Wozu brauchen wir bivariate Analysen? (1)} 
+    \shine{Bivariate Analysen} helfen uns folgende Fragen zu beantworten:
+  
+    \begin{itemize}
+      \item Welche Blutgruppe ist am wenigsten „anfällig” für Corona?
+      \item Gehen formal höher Gebildete eher zur Wahlurne als formal niedrig Gebildete?
+      \item Wählen Ostdeutsche häufiger die Linke als Westdeutsche?
+      \pause
+      \item[$\Rightarrow$] Kreuztabellen \& $\chi^2$-basierte Zusammenhangmaße
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Wozu brauchen wir bivariate Analysen? (2)}
+    \shine{Bivariate Analysen} helfen uns folgende Fragen zu beantworten:
+    \begin{itemize}
+        \item Inwieweit hängt die Zufriedenheit mit der Demokratie mit der ökonomischen Zufriedenheit zusammen?
+        \item Sind Personen, die ein höheres Einkommen haben, generell mit ihrem Leben zufriedener?
+        \item Haben Personen mit niedrigerem Bildungsabschluss eine höhere Wahlabsicht der AfD (propensity to vote)?
+        \pause 
+        \item[$\Rightarrow$] Korrelation
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Wozu brauchen wir bivariate Analysen? (3)}
+    \shine{Bivariate Analysen} helfen uns folgende Fragen zu beantworten:
+  
+    \begin{itemize}
+        \item Inwieweit unterscheidet sich die Wahlabsicht der AfD zwischen Stadt- und Landbevölkerung?
+        \item Inwieweit unterscheidet sich die Zufriedenheit mit der Demokratie nach formalem Bildungsabschluss?
+        \item Inwieweit unterscheidet sich die Wochenarbeitszeit im Haushalt nach Geschlecht?
+        \pause
+        \item[$\Rightarrow$] Mittelwertvergleiche
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Kreuztabellen \& $\chi^2$ basierte Zusammenhangsmaße}
+Nur zur Erinnerung:
+
+$\Rightarrow$ $\chi^2$ basierte Zusammenhangsmaße messen statistische Unabhängigkeit und Stärke des Zusammenhangs
+
+$\Rightarrow$ Maße sind z.B. Cramer’s V oder $\phi$
+
+$\Rightarrow$ alternativ können auch PRE-Maße berechnet werden (z.B. $\lambda$)
+\end{frame}
+
+\begin{frame}{Korrelation}
+Gegenüber Zusammenhangsmaßen stellt die Korrelation eine weitere Information dar:
+
+$\Rightarrow$ \shine{Richtung} des Zusammenhangs (positiv oder negativ) 
+
+$\Rightarrow$ Es muss mind. ordinales Skalenniveau auf beiden Variablen vorliegen!
+
+Üblicherweise wird \shine{Pearson’s r} (mind. pseudo-metrisch) und \shine{Spearman’s $\rho$} (mind. ordinal)
+\end{frame}
+
+\begin{frame}{Mittelwertvergleiche} 
+    \begin{itemize}
+        \item Vergleich einer (pseudo-)metrischen Variablen auf einer Gruppenvariable (nominal oder ordinal)
+        \item Unterschiede in Gruppen können so aufgedeckt werden
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Entscheidungshilfe}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Die Methodenberatung der UZH bietet einen übersichtlichen Entscheidungsbaum für einzelne Verfahren. 
+Nicht alle dort genannten Verfahren sind bisher im Studium dran gekommen.
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}[ht]
+	            \includegraphics[width=\textwidth]{pics/s6-1.png}
+	            \caption{\textbf{UZH Methodenberatung}}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\section{Korrelation}
+
+\begin{frame}{Korrelationsmaße}
+Für die Berechnung von \shine{Pearson’s r} müssen folgende Bedingungen erfüllt sein:
+
+    \begin{itemize}
+        \item (pseudo-)metrische Variablen
+        \item lineare (monotone) Beziehung
+        \item Varianzgleichheit testen
+        \item (bivariate Normalverteilung)
+    \end{itemize}
+
+Für \shine{Spearman’s $\rho$} muss folgendes gegeben sein:
+
+    \begin{itemize}
+        \item (mind.) ordinale Variablen
+        \item monotone Beziehung
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Beziehung zwischen zwei Variablen}
+    \begin{figure}[ht]
+        \includegraphics[width=\textwidth]{pics/s6-2.png}
+        \caption{\textbf{Ascombe Quadrat}}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Anwendungsbeispiel}
+Korrelation zwischen \textit{Trust in Parliament} und \textit{Trust in Politicians} (österreichisches Subset des ESS Round 9):
+
+    \begin{itemize}
+        \item Variablen sind pseudo-metrisch $\checkmark$
+        \item Prüfen der Beziehungsstruktur: linear \& monoton?
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Ausgabe in R}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+<<plot-code-r, size="scriptsize">>=
+ggplot(essat,
+       aes(essat$trstprl,
+           essat$trstplt)) +
+  geom_point() + 
+  geom_jitter()
+@
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}[ht]
+                \includegraphics[width=\textwidth]{pics/s6-3.png}
+                \caption{\textbf{R Ausgabe}}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Ausgabe in SPSS}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+<<plot-code-spss, size="Tiny", tidy = FALSE, highlight = FALSE>>=
+GGRAPH
+  /GRAPHDATASET NAME="graphdataset" 
+    VARIABLES=trstprl trstplt 
+    MISSING=LISTWISE REPORTMISSING=NO
+  /GRAPHSPEC SOURCE=INLINE
+  /FITLINE TOTAL=NO SUBGROUP=NO.
+BEGIN GPL
+  SOURCE: s=userSource(id("graphdataset"))
+  DATA: trstprl=col(source(s),
+                    name("trstprl"), unit.category())
+  DATA: trstplt=col(source(s),
+                    name("trstplt"), unit.category())
+  GUIDE: axis(dim(1), 
+              label("Trust in country's parliament"))
+  GUIDE: axis(dim(2), 
+              label("Trust in politicians"))
+  GUIDE: text.title(label("Streudiagramm von Trust in 
+                          politicians Schritt: Trust in 
+                          country's parliament"))
+  SCALE: cat(dim(1), 
+             include("0", "1", "2", "3", "4", 
+                     "5", "6", "7", "8", "9", "10"))
+  SCALE: cat(dim(2), 
+             include("0", "1", "2", "3", "4", 
+                     "5", "6", "7", "8", "9", "10"))
+  ELEMENT: point.dodge.symmetric(position(trstprl*trstplt))
+END GPL.
+@
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}[ht]
+                \includegraphics[width=\textwidth]{pics/s6-4.png}
+                \caption{\textbf{SPSS Ausgabe}}
+            \end{figure}        
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Anwendungsbeispiel}
+Korrelation zwischen \textit{Trust in Parliament} und \textit{Trust in Politicians} (österreichisches Subset des ESS Round 9):
+
+    \begin{itemize}
+        \item Variablen sind pseudo-metrisch $\checkmark$
+        \item Prüfen der Beziehungsstruktur: linear \& monoton $\checkmark$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Berechnen Korrelation in R}
+<<corr-r, eval = FALSE>>=
+library("psych")
+corr.test(essat$trstprl,
+          essat$trstplt,
+          method = "pearson",
+          use = "complete.obs")
+@
+
+\shine{Output:}
+<<corr2-r, eval = TRUE, echo = FALSE, size="tiny">>=
+library("psych")
+corr.test(essat$trstprl,
+          essat$trstplt,
+          method = "pearson",
+          use = "complete.obs")
+@
+\end{frame}
+
+\begin{frame}[fragile]{Berechnen Korrelation in SPSS}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+<<corr-spss, highlight = FALSE, tidy = FALSE>>=
+CORRELATIONS
+  /VARIABLES=trstprl trstplt
+  /PRINT=TWOTAIL NOSIG FULL
+  /MISSING=PAIRWISE.
+@
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}[ht]
+                \includegraphics[width=\textwidth]{pics/s6-5.png}
+                \caption{\textbf{SPSS Ausgabe}}
+            \end{figure}          
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Beispiel aus einer Veröffentlichung}
+    \begin{figure}[ht]
+        \includegraphics[width=\textwidth]{pics/s6-6.png}
+        \caption{\textbf{\parencite[439]{Fuchs2002}}}
+    \end{figure}       
+
+Wie interpretieren wir diese Tabelle?
+    \setbeamerfont{itemize/enumerate body}{size = \tiny}
+    \begin{itemize}
+       \item[] WD: Westdeutschland
+        \item[] OD: Ostdeutschland
+        \item[] N: Niederlande
+        \item[] S: Schweden
+        \item[] SPA: Spanien
+    \end{itemize}
+\end{frame}
+
+\setbeamerfont{itemize/enumerate body}{size = \small}
+
+\begin{frame}{Was hat es nochmal mit Signifikanz auf sich?}
+Was sagen uns das Konfidenzintervall und der p-Wert?
+
+\setbeamerfont{itemize/enumerate body}{size = \scriptsize}
+    \begin{itemize}
+        \item wir haben die Korrelation zwischen trstprl und trstplt berechnet und das Konfidenzintervall dieser Korrelation
+        \item mit Signifikanztests (in den meisten Fällen t-Tests) schließen wir aus, dass der Populationswert ($\mu$) dieser Berechnung gleich 0 ist (signifikanter p-Wert): Es ist dann sehr unwahrscheinlich (95 \%), dass $\mu=0$ (also die Korrelation gleich 0 ist!)
+        \item der p-Wert erlaubt uns nicht zu sagen, dass der wahre Wert dem berechneten Wert entspricht (z.B. mit 95 \% Sicherheit ist der wahre Mittelwert innerhalb des berechneten Konfidenzintervalls). Denn wir wissen nicht, ob unsere Stichprobe eine der Stichproben ist, die den wahren Wert ($\mu$) inkludiert (95 \% der Stichproben inkludieren den Wert)
+        \item nicht-signifikante Werte sagen uns daher, dass wir nicht ausschließen können, dass der wahre Populationswert ($\mu$) gleich 0 ist; wir können nicht sagen, dass der wahre Wert gleich 0 ist.
+        \item[$\Rightarrow$] Verwirrt? Einfach daran erinnern, dass es hier um Falsifikation und nicht um Verifikation geht (Grundlage der empirischen Sozialforschung!).
+    \end{itemize}
+    
+\setbeamerfont{itemize/enumerate body}{size = \small}\end{frame}
+
+\section{Mittelwertvergleiche}
+
+\begin{frame}{Testsituationen}
+\grayed{1. eine Gruppe (test of $\mu$): Einstichproben t-Test}
+
+2. Zwei Gruppen (ungepaart / unabhängig): ungepaarter t-Test
+ 
+3. Zwei Gruppen (gepaart / abhängig): gepaarter t-Test
+ 
+4. mehr als zwei Gruppen (ungepaart): ANOVA
+
+\grayed{5. [mehr als zwei Gruppen (gepaart)]}
+\end{frame}
+
+\subsection{Zwei Gruppen}
+
+\begin{frame}{Ungepaarter t-Test}
+\shine{Beispiel}: Vertraglich vereinbarte wöchentliche Arbeitszeit nach Geschlecht (Subset österreichischer Befragte)
+
+Testannahmen:
+
+1. Varianzhomogenität (\textit{Levene-Test})
+
+\grayed{2. Normalverteilung der metrischen Variable (uV)}
+\end{frame}
+
+\begin{frame}[fragile]{Anwendung in R}
+<<ttestR>>=
+library("car")
+leveneTest(essat$wkhtot,
+           essat$gndr,
+           center = "mean")
+
+t.test(essat$wkhtot ~ essat$gndr,
+       mu = 0,
+       alternative = "two.sided",
+       paired = FALSE,
+       var.equal = FALSE)
+@
+\end{frame}
+
+\begin{frame}[fragile]{Ergebnis in R}
+<<ttestRResult, eval = TRUE, echo = FALSE, size = "tiny">>=
+library("car")
+leveneTest(essat$wkhtot,
+           essat$gndr,
+           center = "mean")
+
+t.test(essat$wkhtot ~ essat$gndr,
+       mu = 0,
+       alternative = "two.sided",
+       paired = FALSE,
+       var.equal = FALSE)
+@
+\end{frame}
+
+\begin{frame}[fragile]{Anwendung in SPSS}
+<<ttestSpss, tidy = FALSE, highlight = FALSE>>=
+T-TEST GROUPS=gndr(1 2)
+  /MISSING=ANALYSIS
+  /VARIABLES=wkhtot
+  /ES DISPLAY(TRUE)
+  /CRITERIA=CI(.95).
+@
+\end{frame}
+
+\begin{frame}{Ergebnis in SPSS}
+  \begin{figure}[ht]
+    \includegraphics[width=\textwidth]{pics/s6-7.png}
+    \caption{\textbf{SPSS Ausgabe}}
+  \end{figure}    
+\end{frame}
+
+\subsection{Mehrere Gruppen}
+
+\begin{frame}{Mehrere Gruppen (one-way-ANOVA, F-test)}
+Wir vergleichen nun, ob in Abhängigkeit der Bildung die vertraglich vereinbarte wöchentliche Arbeitszeit sich signifikant unterscheidet. Dazu rekodieren wir die Variable \textit{edulveat}.
+
+Annahmen der \shine{One-Way-ANOVA}:
+
+1. abhängige Variable ist metrisch $\checkmark$
+
+2. unabhängige Variable ist kategoriell $\checkmark$
+
+3. Gruppen sind unabhängig $\checkmark$
+
+\grayed{4. Normalverteilung der aV in jeder Gruppe (nötig nur bei $n \leq 25$)}
+
+5. Varianzhomogenität zwischen den Gruppen
+
+\end{frame}
+
+\begin{frame}[fragile]{Rekodieren \textit{edulveat}}
+Wir rekodieren die Variable \textit{edulveat} nach folgendem Schema:
+
+  \begin{itemize}
+    \item $1 - 3 \rightarrow 1$
+    \item $4 - 7 \rightarrow 2$
+    \item $8 - 11 \rightarrow 3$
+    \item $12 - 18 \rightarrow 4$
+    \item andere $\rightarrow$ NA
+  \end{itemize}
+
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+    \shine{R}
+<<recodeR, size = "tiny", eval=TRUE>>=
+essat$edu <- recode(essat$edlveat,
+                    "1:3 = 1;
+                    4:7 = 2; 
+                    8:11 = 3;
+                    12:18 = 4;
+                    else = NA",
+                    as.factor = TRUE)
+@
+    \end{column}
+    \begin{column}{0.5\textwidth}
+    \shine{SPSS}
+  <<recodeSPSS, tidy=FALSE, highlight = FALSE>>=
+RECODE edlveat (1 thru 3=1)
+               (4 thru 7=2) 
+               (8 thru 11=3) 
+               (12 thru 18=4) 
+      (ELSE=SYSMIS) INTO edu.
+@
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Anwendung in R}
+<<ftestr>>=
+leveneTest(essat$wkhtot ~ essat$edu,
+           center = "mean")
+oneway.test(essat$wkhtot ~
+              essat$edu,
+            var.equal = FALSE)
+pairwise.t.test(essat$wkhtot, 
+                essat$edu,
+                p.adj = "holm")
+
+@
+\end{frame}
+
+\begin{frame}[fragile]{Ausgabe in R}
+<<ftestrResult, echo=FALSE, eval=TRUE>>=
+leveneTest(essat$wkhtot ~ essat$edu,
+           center = "mean")
+oneway.test(essat$wkhtot ~
+              essat$edu,
+            var.equal = FALSE)
+pairwise.t.test(essat$wkhtot, 
+                essat$edu,
+                p.adj = "holm")
+
+@
+\end{frame}
+
+\begin{frame}[fragile]{Anwendung in SPSS}
+<<ftestSPSS, highligh=FALSE>>=
+ONEWAY wkhtot BY edu
+  /STATISTICS DESCRIPTIVES HOMOGENEITY 
+  /MISSING ANALYSIS
+  /CRITERIA=CILEVEL(0.95).
+
+ONEWAY wkhtot BY edu
+  /STATISTICS DESCRIPTIVES HOMOGENEITY 
+  /MISSING ANALYSIS
+  /CRITERIA=CILEVEL(0.95)
+ /POSTHOC=T2 ALPHA(0.05).
+@
+\end{frame}
+
+\begin{frame}[fragile]{Auswertung in SPSS}
+  \begin{figure}[ht]
+    \includegraphics[width=\textwidth]{pics/s6-8.png}
+    \caption{\textbf{SPSS Ausgabe}}
+  \end{figure}    
+\end{frame}
+
+\begin{frame}{Beispiel aus Veröffentlichung}
+  \begin{figure}[ht]
+	  \includegraphics[width=\textwidth]{pics/s6-9.png}
+  \end{figure}
+
+Wie interpretieren wir diese Tabelle?  
+\end{frame}
+
+\section{Lab Tasks}
+
+\begin{frame}{Lab task}
+Wählt aus eurem Forschungsinteresse heraus eine abhängige Variable. Wählt dazu ein beliebiges Data Set (aus dem Kurs oder sonstiges frei verfügbares). Berechne mindestens \shine{3} Korrelationen und \shine{einen} Mittelwertvergleich.
+
+Stellt vor Beginn der Analyse Vermutungen über den Zusammenhang zwischen den Variablen auf!
+
+Stellt die Ergebnisse tabellarisch für eine wissenschaftliche Arbeit dar. 
+
+\end{frame}
+
+\end{document}

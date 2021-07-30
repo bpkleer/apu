@@ -1,0 +1,245 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\defaultfontfeatures{Mapping=tex-text}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+%\setmainfont{???}
+\usepackage{polyglossia}
+\setdefaultlanguage{german}
+\usepackage{lmodern}
+
+%Einstellung Seitenränder
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+% math-umgebung
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+% Color und Hyperlink packages
+\usepackage{hyperref}
+\usepackage[svgnames,hyperref]{xcolor}
+
+% Datumspaket
+\usepackage[german]{isodate}
+
+% Table packages
+\usepackage{booktabs}
+\usepackage{longtable}
+
+% Bibtex Einstellungen
+\usepackage[defernumbers=true,
+			%sorting =ydnt,
+			backend=biber,
+			citestyle=apa,
+			bibstyle=apa, %apa funktioniert nicht irgendwie
+			style=apa,
+			%isbn=false,
+			%block=space,
+			%doi=true,
+			%url=true,
+			%maxnames=9
+			]{biblatex}
+\DeclareLanguageMapping{german}{german-apa}	
+\addbibresource{literature.bib} 
+
+%Einstellungen hyperlink
+\hypersetup{
+    colorlinks=true,
+    filecolor=Purple,    
+    linkcolor = Orange,  
+    urlcolor=MediumSeaGreen,
+    citecolor = black,
+    pdftitle={Seminarplan},
+    pdfpagemode=FullScreen,
+}
+
+\urlstyle{same}
+% how to use Hyperlinks: https://de.overleaf.com/learn/latex/Hyperlinks
+
+% Name, Titel, etc.
+\author{B. Philipp Kleer}
+\title{%
+  Analyse poltischer Unterstützung in der\\quantitativen Forschungspraxis \\
+  \large Seminarplan \\
+  Wintersemester 2021/22}
+
+\author{B. Philipp Kleer}
+\date{\today \\ \small{Version: v1}}
+
+\begin{document}
+
+\maketitle
+
+\section*{Allgemein Veranstaltungsinformation}
+\textbf{Beginn:} 10:00-11:30 \& 12:30-14:00, 29. Oktober 2021 (zweiwöchentlich) \\
+\textbf{Raum:} \href{https://uni-giessen.webex.com/uni-giessen/j.php?MTID=me9b9e8587ea9a3c966be53ea4b36f4f1}{\textbf{Link zu Webex}}, Kennwort: EastonWiSe21  \\
+\textbf{Studiengang (Modul):} BA Social Sciences (M8 Methodenvertiefung)\\
+\textbf{Sprechstunde:} Termine sind über \href{https://ilias.uni-giessen.de/ilias/goto.php?target=prtf_415969_35654&client_id=JLUG}{\textbf{ILIAS}} zu buchen
+
+\section*{Veranstaltungsinhalt}
+
+Demokratien und Gesellschaften sind zur Sicherung ihrer Überlebensfähigkeit auf die politische Unterstützung ihrer Bürger:innen angewiesen. Daher stellt das Verhältnis der Bevölkerung zum politischen System innerhalb der Politikwissenschaft einen großen Forschungsschwerpunkt dar. Hierbei werden insbesondere politische Einstellungen von Individuen als zentraler Aspekt dieses Verhältnisses dargestellt. Anhand von Umfragedaten versucht die politische Einstellungs- und Demokratieforschung die Orientierungen in Gesellschaften zu messen und zu analysieren. In dieser Veranstaltung steht die eigene Analyse politischer Einstellungen anhand größerer Survey-Datensätze im Vordergrund. Dabei ist der politikwissenschaftliche Forschungsbezug im Mittelpunkt. 
+
+Im Seminar werden zu Beginn klassische Forschungskonzepte der Einstellungs- und Demokratieforschung eingeführt, vertieft und diskutiert. Im Anschluss daran werden neuere empirische Untersuchungen diskutiert und die Studierenden entwickeln, in Gruppen oder einzeln, eigene Projektarbeiten. Das Seminar findet zweitwöchentlich statt und unterteilt sich ab dem zweiten Treffen in eine Theorieeinheit und eine praktische Einheit. In den Theorieeinheiten werden die Pflicht- und weiterführende Lektüre diskutiert. In den praktischen Einheiten werden einzelne Schritte zur Vorbereitung eines eigenen Analyseprojekts in den Statistikprogrammen (R oder SPSS) wiederholt und vertieft. Ebenso besteht die Möglichkeit in den praktischen Einheiten weiterführende Methoden kennenzulernen.
+
+Es wird darauf hingewiesen, dass Studierende diesen Kurs im Idealfall nach der Teilnahme in der Übung in Modul 7 (Grundkurs in R oder SPSS) belegen. Grundlegende Kenntnisse in der Anwendung in R Studio bzw. SPSS werden bei der Erstellung der Hausarbeit und bei der Gruppenarbeit benötigt. Dieser Kurs fokussiert die Anwendung bereits erworbener Grundkenntnisse (Übung Modul 7) in einem Statistikprogramm in der Einstellungs-/Demokratieforschung. Dieser Kurs stellt somit \underline{keine} Einführung in ein Statistikprogramm dar. Es wird für Interessierte aber ein Web-Based-Training zur Verfügung gestellt, das den Einstieg in R (außerhalb der Kurszeit) erleichtert. Weiterführende Methoden werden bei Bedarf im Kurs praktisch eingeführt (z. B. Multi-Level-Modelle). Für Studierende, die einen \textit{kleinen Schein} erbringen möchten, ist die Teilnahme auch ohne den vorherigen Besuch eines Programmkurses möglich. Im Semesterverlauf wird es aber für diese Studierenden ohne Programmvorkenntnisse anfordernd sein, dem Kurs zu folgen.
+
+\section*{Pflichtliteratur und weiterführende Literatur}
+Diese Veranstaltung ist als Projektseminar geplant. Ziel ist es, dass Studierende ausgehend von der Theorie politischer Unterstützung eigene kleinere empirische Projekte umsetzen. Dazu ist das Einarbeiten und \underline{Einlesen} in die theoretischen Grundlagen vonnöten. Zu Beginn des Semesters ist die Lesebelastung höher als am Ende des Semesters (Fokussierung auf eigene empirische Umsetzung). Im Durchschnitt bewegt sich die Lesebelastung des Seminars (Pflichtlektüre) aber am unteren Ende für sozialwissenschaftliche Kurse, bei knapp $27$ Seiten pro Einheit (insgesamt 401 Seiten auf 15 Einheiten). Wie üblich in den Sozialwissenschaften ist die Literatur bis auf wenige Ausnahmen in \textbf{englischer Sprache}. Sie finden alle Texte sowie die Literaturangaben in der Lernumgebung in \href{https://ilias.uni-giessen.de/ilias/goto.php?target=prtf_415969_35654&client_id=JLUG}{\textbf{ILIAS}}. 
+%Link hier anpassen!
+
+\section*{Teilnahmemodalitäten}
+Studierende können innerhalb des Moduls 8 wählen, ob die MAP in diesem Seminar erbracht werden soll (\textbf{großer Schein}) oder nicht (\textbf{kleiner Schein}). Die Entscheidung fällt beim Einflexen: Studierende, die sich in den Kurs mit \textit{Seminar II} anmelden, erbringen die MAP im Seminar; Studierende, die sich mit \textit{Seminar I} anmelden, müssen nur eine Vorleistung erbringen. \newline
+
+\underline{Anforderungen kleiner Schein (BA-Studierende ohne MAP):}
+\begin{itemize}
+	\item Einführung in einen der theoretischen oder empirischen Texte (Zuteilung in 1. Sitzung)
+	\item Mitarbeit in Planung eines Forschungsprojekts
+	\item Peer-Feedback zu Forschungsideen anderer 
+\end{itemize}
+	
+\underline{Anforderungen großer Schein (BA-Studierende mit MAP):}
+\begin{itemize}
+	\item Vorstellung des geplanten Projekts in den letzten drei Einheiten (Theorie, Analyseschritte, evtl. erster Code)
+	\item Digitale Abgabe einer Hausarbeit basierend auf der Projektidee (Formalia der Hausarbeit siehe Dokument in ILIAS) bis zum 31. März 2022
+\end{itemize}
+
+\section*{Lernziele}
+Bei \underline{regelmäßiger und aktiver} Teilnahme können Sie am Ende des Semesters: 
+\begin{itemize}
+	\item die Konzeption von politischer Unterstützung und politischer Kultur verstehen, erklären und in eigenen Analysen anwenden,
+	\item eine eigene kleine empirische Analyse planen (Theoriebezug, Forschungsfrage, Untersuchungsgegenstand, Methodenschritte)
+	\item eine selbstständig geplante empirische Analyse umsetzen. (großer Schein)
+\end{itemize}
+
+\section*{Semesterplan}
+Nachfolgend finden Sie den vorläufigen Semesterplan. Die Pflichtliteratur (\textbf{fett markiert}) und die weiterführende Literatur ist unter den jeweiligen Einheiten aufgeführt.
+
+\begin{longtable}{p{0.1\textwidth} p{0.6\textwidth}}
+	\toprule[2pt]
+	%1. Einheit
+	\multicolumn{2}{l}{\textbf{1. Einheit:} \printdate{2021-10-29}}\\
+	\midrule
+	Inhalt & Einführung ins Semesterprogramm, Einteilung der Texte (\textit{kleiner Schein})  \\
+	\midrule
+	Literatur & \textbf{\textcite{Gabriel.2020}} \\
+	\bottomrule[2pt]
+	 & \\ 
+ 	\toprule[2pt]
+ 	%2. Einheit
+	\multicolumn{2}{l}{\textbf{2. Einheit:} \printdate{2021-10-29}}\\
+	\midrule
+	Inhalt & Politische Unterstützung\\
+	\midrule
+	Literatur & \textbf{\textcite{Easton.1975}}, \textbf{\textcite[20-63]{Fuhse.2005}}, \textcite{Easton.1965, Fuchs.2016}\\
+	\bottomrule[2pt]
+	 & \\ 
+ 	\toprule[2pt]
+ 	%3. Einheit
+	\multicolumn{2}{l}{\textbf{3. Einheit:} \printdate{2021-11-12}}\\
+	\midrule
+	Inhalt & Politische Kultur \\
+	\midrule
+	Literatur & \textbf{\textcite[Kap. 1/15]{Almond.1963}, \textcite{Gabriel.2009}}, \textcite{Fuchs.2007, Westle.2009, Pollack.2015} \\
+	\bottomrule[2pt]
+	 & \\ 
+ 	\toprule[2pt]
+ 	%4. Einheit
+	\multicolumn{2}{l}{\textbf{4. Einheit:} \printdate{2021-11-12}}\\
+	\midrule
+	Inhalt & Hands-On: Items finden und deskriptive Statistik \\
+	\bottomrule[2pt]
+	 & \\ 
+ 	\toprule[2pt]
+ 	%5. Einheit
+	\multicolumn{2}{l}{\textbf{5. Einheit:} \printdate{2021-11-26}}\\
+	\midrule
+	Inhalt & Politisches Vertrauen \\
+	\midrule
+	Literatur & \textbf{\textcite{Zmerli.2020, Festenstein2019} (Theorie), \textcite{Hooghe2017} (Empirie)}, \textcite{Geurkink.2019} \\
+	\bottomrule[2pt]
+	 & \\ 
+ 	\toprule[2pt]
+ 	%6. Einheit
+	\multicolumn{2}{l}{\textbf{6. Einheit:} \printdate{2021-11-26}}\\
+	\midrule
+	Inhalt & Hands-On: Korrelation \& Zusammenhangsmaße \\
+	\bottomrule[2pt]
+	 & \\ 
+ 	\toprule[2pt]
+ 	%7. Einheit
+	\multicolumn{2}{l}{\textbf{7. Einheit:} \printdate{2021-12-10}}\\
+	\midrule
+	Inhalt & Politisches Wissen \& Interesse \\
+	\midrule
+	Literatur & \textbf{\textcite{vanDeth.2004b, Westle.2020} (Theorie), \textcite{Russo.2017, Reichert.2019} (Empirie)}, \textcite{Bathelt.2016} \\
+	\bottomrule[2pt]
+	 & \\ 
+ 	\toprule[2pt]
+ 	%8. Einheit
+	\multicolumn{2}{l}{\textbf{8. Einheit:} \printdate{2021-12-10}}\\
+	\midrule
+	Inhalt & Hands-On: Grafische Darstellungen \\
+	\bottomrule[2pt]
+	 & \\ 
+ 	\toprule[2pt]
+ 	%9. Einheit
+	\multicolumn{2}{l}{\textbf{9. Einheit:} \printdate{2022-1-14}}\\
+	\midrule
+	Inhalt & Werte \& Wertewandel\\
+	\midrule
+	Literatur & \textbf{\textcite[Kap. A Theory of Emancipation]{Welzel.2013} (Theorie), \textcite{Inglehart.2010} (Empirie)} \\
+	\bottomrule[2pt]
+	 & \\ 
+ 	\toprule[2pt]
+ 	%10. Einheit
+	\multicolumn{2}{l}{\textbf{10. Einheit:} \printdate{2022-1-14}}\\
+	\midrule
+	Inhalt & Hands-On: Lineare Regression \\
+	\bottomrule[2pt]
+	 & \\ 
+	 \\
+	 \\
+ 	\toprule[2pt]
+ 	%11. Einheit
+	\multicolumn{2}{l}{\textbf{11. Einheit:} \printdate{2022-1-28}}\\
+	\midrule
+	Inhalt & Authoritarian Notions of Democracy \\
+	\midrule
+	Literatur & \textbf{\textcite[Kap. The Paradox of Democracy]{Welzel.2013}}, \textcite{Welzel.2017, Zagrebina.2019} \\
+	\bottomrule[2pt]
+	 & \\ 
+ 	\toprule[2pt]
+ 	%12. Einheit
+	\multicolumn{2}{l}{\textbf{12. Einheit:} \printdate{2022-1-28}}\\
+	\midrule
+	Inhalt & Hands-On: Logistische Regression \\
+	\bottomrule[2pt]
+	 & \\ 
+ 	\toprule[2pt]
+ 	%13. Einheit
+	\multicolumn{2}{l}{\textbf{13. Einheit:} \printdate{2022-2-11}}\\
+	\midrule
+	Inhalt & Projektpräsentationen I \\
+	\bottomrule[2pt]
+	 & \\ 
+ 	\toprule[2pt]
+ 	%14. Einheit
+	\multicolumn{2}{l}{\textbf{14. Einheit:} \printdate{2022-2-11}}\\
+	\midrule
+	Inhalt & Projektpräsentationen II \\
+	\bottomrule[2pt]
+	 & \\ 
+ 	\toprule[2pt]
+ 	%15. Einheit
+	\multicolumn{2}{l}{\textbf{15. Einheit:} \printdate{2022-2-18}}\\
+	\midrule
+	Inhalt & Projektpräsentationen III \& Wrap-up\\
+	\bottomrule[2pt]	
+\end{longtable}
+
+
+\printbibliography
+
+\end{document}

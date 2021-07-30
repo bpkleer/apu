@@ -1,0 +1,231 @@
+\documentclass[11pt]{beamer}
+% Packages
+\usepackage{beamer-german}
+
+% Title etc.
+\title{Politische Unterstützung}
+\subtitle{Analyse politischer Unterstützung in der quantitativen Forschungspraxis}
+\date{29. Oktober 2021}
+\author{B. Philipp Kleer}
+\institute{Institut für Politikwissenschaft | Justus-Liebig-Universität Gießen}
+
+\setbeamerfont{itemize/enumerate body}{size = \small}
+\setbeamerfont{itemize/enumerate subbody}{size = \footnotesize}
+\setbeamerfont{itemize/enumerate subsubbody}{size = \scriptsize}
+
+\hypersetup{
+    colorlinks=true,
+    filecolor=Purple,    
+    linkcolor = orange,  
+    urlcolor= orange,
+    citecolor = black
+}
+
+% Datumspaket
+\usepackage[german]{isodate}
+
+% Table packages
+\usepackage{booktabs}
+\usepackage{longtable}
+
+% bibtex-file
+\addbibresource{lit-s2.bib} 
+
+\begin{document}
+% knitr Setup
+<<setup, include = FALSE, cache = FALSE>>=
+library(knitr)
+# set global chunk options
+opts_chunk$set(fig.path = 'figure/minimal-',
+               fig.align = 'center',
+               fig.show = 'hold',
+               echo = TRUE, 
+               eval = FALSE,
+               warning = FALSE, 
+               message = FALSE,
+               size = "footnotesize")
+options(formatR.arrow = TRUE,
+        width = 90)
+
+system (paste ("biber", sub ("\\.Rnw$", "", current_input())))
+
+setwd("C:/Users/g31442/Documents/JLUG/Lehre/21_22 WiSe/APU/Slides")
+Sys.setenv(TEXINPUTS=getwd(),
+           BIBINPUTS=getwd(),
+           BSTINPUTS=getwd())
+@
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}[t]{Heutige Agenda}
+\textbf{Grundlagentexte}
+	\begin{itemize}
+		\item Easton, David (1975): A Re-Assessment of the Concept of Political Support, British Journal of Political Science, Vol 5, Nr. 4: 435-457.
+		\item Fuhse, Jan (2005): Theorien des politischen Systems. David Easton und Niklas Luhmann. Eine Einführung. Wiesbaden: VS Verlag für Sozialwissenschaften. (S. 20-63)
+		\item[$\Rightarrow$] Verständnisprobleme / Klärungsfragen?
+		\item[$\Rightarrow$] Wie wirken direkten Erfahrungen bei \textit{specific support} und \textit{diffuse support}?
+		\item[$\Rightarrow$] Zeit: 20 Minuten (kommen Sie zurück ins Plenum, wenn Sie schon vor der Zeit durch sind)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[t]{4 Bilder \& Eastons Theorie}
+So wir haben jetzt Grundfragen geklärt. Dieses Wissen vertiefen wir nun angewandt. Jede Gruppe bekommt eins der vier Bilder zugeteilt, und soll frei assoziieren mit Eastons Theorie. \\
+\textbf{Zeit}: 15 Minuten; Präsentation in Plenum: 5 Minuten
+	\begin{columns}
+		\begin{column}{0.25\textwidth}
+			\begin{figure}[ht]
+				\includegraphics[width=\textwidth]{pics/s2-1.jpg}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.25\textwidth}
+			\begin{figure}[ht]
+				\includegraphics[width=\textwidth]{pics/s2-2.jpg}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.25\textwidth}
+			\begin{figure}[ht]
+				\includegraphics[width=\textwidth]{pics/s2-3.jpg}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.25\textwidth}
+			\begin{figure}[ht]
+				\includegraphics[width=\textwidth]{pics/s2-4.jpg}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Werte, Einstellungen \& Handeln}
+	\begin{center}
+		\begin{figure}[ht]
+			\includegraphics[width=\textwidth]{pics/s2-5.png}
+		\end{figure}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Wertemodell nach Schwartz (1992)}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}[ht]
+				\includegraphics[width=\textwidth]{pics/s2-6.png}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			„ [...] conceptions of the desirable that guide the way social actors (e.g. organisational leaders, policy-makers, individual persons) select actions, evaluate people and events, and explain their actions and evaluations” \parencite[24f]{Schwartz1992}.
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}[t]{Politisches System}
+\textbf{Definition:} \\ \pause
+Interaktionen innerhalb einer Gesellschaft, die mit der autoritativen Allokation von Werten beschäftigt sind \parencite[129ff]{Easton1965}\\  \pause
+\textbf{Was sind Werte hier?} \\ \pause
+materielle und ideelle Güter
+
+\end{frame}
+
+\begin{frame}[t]{Modell des Politischen System}
+Kann jemand das Modell grob skizzieren? \\
+
+	\begin{figure}[ht]
+		\includegraphics[width=\textwidth]{pics/s2-7.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}[t]{Politische Unterstützung}
+Welche zwei Formen werden unterschieden? \\ \pause
+
+\begin{itemize}
+	\item diffuse
+	\item specific \pause
+\end{itemize}
+
+Wohin richtet sich politische Unterstützung? \pause
+\begin{itemize}
+	\item political community
+	\item regime
+	\item authorities
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Objekte politischer Unterstützung}
+\textbf{Entscheidungsträger:innen (authorities)} \\ \pause
+
+„They must engage in the \textbf{daily affairs} of a political system; they must be \textbf{recognized by most members} of the system as \textbf{having the responsibility for these matters}; and \textbf{their actions must be accepted as binding} most of the time by most of the member \textbf{as long as they act within the limits of their roles}“ \parencite[212]{Easton1965} \\ \pause
+
+z.B.: Kanzler:in, Fraktionsführer:in, Partei-Vorsitzende:r, Minister:in etc. 
+\end{frame}
+
+\begin{frame}[t]{Objekte politischer Unterstützung}
+\textbf{Regime} \\ \pause
+
+„The regime as \textbf{sets of constraints on political interaction} in all systems may be broken down into three components: \textbf{values} (goals and principles), \textbf{norms}, and \textbf{structure of authority}.“ \parencite[193]{Easton1965}\\ \pause
+
+\textit{Values}: Ideologien (Demokratie, Kommunismus, Nationalsozialismus) \\ \pause
+
+\textit{Norms}: Spielregeln des jeweiligen Systems, wie laufen Prozesse ab \\ \pause
+
+\textit{Authority structure}: Befugnisse einzelner politischer Ämter \\ \pause
+\end{frame}
+
+\begin{frame}[t]{Objekte politischer Unterstützung}
+\textbf{Politische Gemeinschaft (political community)} \\ \pause
+
+„In confining the idea of political community in this way, I do so in order to focus (…) on the group of members who are drawn together by the fact that \textbf{they participate in a common structure and a set of processes}, however tight or loose the ties may be.“ \parencite[178]{Easton1965} \\ \pause
+
+z.B.: „Wir-Gefühl“, Nationalstolz, Verbundenheitsgefühl 
+
+\end{frame}
+
+\begin{frame}{Entstehung politischer Unterstützung}
+	\begin{figure}[ht]
+		\includegraphics[width=\textwidth]{pics/s2-8.png}
+		\caption{\cite[45]{Fuhse2005}}
+	\end{figure}
+\end{frame}
+
+\begin{frame}[t]{Legitimität \& Vertrauen}
+\textbf{Legitimacy} \\ 
+Worin besteht die Hauptverknüpfung? Welche Form? Auf welche Objekte? \\ \pause
+
+\textbf{Trust} \\
+Worin unterscheidet sich \textit{trust} von \textit{legitimacy}? \\
+\end{frame}
+
+\begin{frame}[t]{Output \& Feedback}
+\textbf{Output} \\  \pause
+\begin{itemize}
+	\item kollektiv bindende Entscheidungen, die im politischen System getroffen wurden \pause
+	\item Evaluierung durch Personen, davon abhängig neue Forderungen bzw. Unterstützung \pause
+	\item[$\Rightarrow$] \textit{feedback loop}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Politische Unterstützung}
+Was ist Kernmerkmal dieser Theorie? \\ \pause
+
+	\begin{itemize}
+		\item Politisches System ist black box \pause
+		\item Es geht nicht darum Prozesse innerhalb des Politischen Systems zu erklären!
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Rückfragen?}
+	\begin{figure}[ht]
+		\includegraphics[width=0.25\textwidth]{pics/s2-9.png}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}{Literatur}
+\nocite{*}
+ \printbibliography[heading = none]
+\end{frame}
+
+\section{Bis zum nächsten Mal!}
+
+\end{document}

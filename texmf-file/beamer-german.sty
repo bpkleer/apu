@@ -1,0 +1,72 @@
+\usetheme{metropolis}           % Use metropolis theme
+\usepackage[utf8]{inputenc}
+
+% Progress bar in foot
+\metroset{progressbar = foot}
+\metroset{block=fill}
+\metroset{titleformat frame=smallcaps, titleformat section=smallcaps} 
+
+% Size of Progress bar
+\makeatletter
+\setlength{\metropolis@progressinheadfoot@linewidth}{1.5pt}
+\makeatother
+
+% engines für Text
+\usepackage[utf8]{inputenc} % Umlaute
+\usepackage{xunicode} % creates unicode signs for ä, ó etc.
+\usepackage{fontspec} % changing font (unten freimachen für Änderung
+	% \defaultfontfeatures{Mapping = tex-text}
+	% \setmainfont{Candara} %user-defined Font.
+\usepackage{polyglossia} % babel Alternative
+	\setdefaultlanguage{german} % sets language
+% für language: [variant=british]{english} oder [variant=us]{english}, US-variant is default
+% \setotherlanguage{} %for second language
+
+% math-environment
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+% Table packages
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{array}
+\usepackage{colortbl} % Zellfarben}
+\usepackage{dcolumn} % für stargazer output
+
+% Hyperlinks & Color
+\usepackage{hyperref} 
+
+
+% TikZ
+\usepackage{tikz}
+\usetikzlibrary{positioning} 
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes}
+\usetikzlibrary{arrows.meta}
+\tikzstyle{line} = [line width = 0.15cm, color = black!50, text = black, -{Triangle[scale = 0.6]}] % Global definitions for tikz}
+
+% biblatex
+\usepackage[defernumbers=true,			
+	%sorting = ydnt,			
+	backend = biber,
+	citestyle = apa,
+	bibstyle = apa,
+	style = apa,
+	%isbn = false,
+	%block = space,			
+	doi = true,
+	%url = true,
+	%maxnames = 9
+	]{biblatex}
+
+% Sprache der Zitation festsetzen
+\DeclareLanguageMapping{german}{german-apa}	
+
+% neue Befehle
+\newcommand{\shine}[1]{\alert{\textbf{#1}}}
+
+\newcommand{\grayed}[1]{\textcolor{lightgray}{#1}}
