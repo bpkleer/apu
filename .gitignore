@@ -35,3 +35,4 @@ Folien/*.toc
 Folien/*.pdf
 Folien/*.tex
 Folien/*.synctex.gz
+*.Rproj
