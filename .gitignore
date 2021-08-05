@@ -2,6 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+.DS_Store
 .aux
 .bbl
 .bcf
@@ -14,3 +15,15 @@
 .tex
 .soc
 .pdf
+Syllabus/.aux
+Syllabus/.bbl
+Syllabus/.bcf
+Syllabus/.blg
+Syllabus/.log
+Syllabus/.nav
+Syllabus/.out
+Syllabus/.run.xml
+Syllabus/.snm
+Syllabus/.tex
+Syllabus/.soc
+Syllabus/.pdf
