@@ -25,3 +25,13 @@ Syllabus/*.run.xml
 Syllabus/*.snm
 Syllabus/*.soc
 Syllabus/*.pdf
+
+Folien/*.bcf
+Folien/*.log
+Folien/*.nav
+Folien/*.run.xml
+Folien/*.snm
+Folien/*.toc
+Folien/*.pdf
+Folien/*.tex
+Folien/*.synctex.gz
