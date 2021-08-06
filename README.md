@@ -13,7 +13,7 @@ In RStudio unter **Global Options** muss bei RSweave folgendes eingestellt sein:
 
 - Typeset LaTeX into PDF using: **XeLaTeX**
 
-- $\checkmark$ bei *Use tinytex when compiling .tex files* setzen.
+- ```math $\checkmark$``` bei *Use tinytex when compiling .tex files* setzen.
 
 Wenn *tinytex* noch nicht installiert ist, einfach über die *Console* in RStudio installieren. 
 
