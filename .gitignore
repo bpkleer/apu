@@ -39,5 +39,6 @@ Folien/*.toc
 Folien/*.pdf
 Folien/*.tex
 Folien/*.synctex.gz
+Folien/*.vrb
 *.Rproj
 .Rproj.user
