@@ -27,8 +27,11 @@ Syllabus/*.snm
 Syllabus/*.soc
 Syllabus/*.pdf
 
+Folien/*.aux
 Folien/*.bcf
 Folien/*.log
+Folien/*.out
+Folien/*.snm
 Folien/*.nav
 Folien/*.run.xml
 Folien/*.snm
@@ -37,3 +40,4 @@ Folien/*.pdf
 Folien/*.tex
 Folien/*.synctex.gz
 *.Rproj
+.Rproj.user
