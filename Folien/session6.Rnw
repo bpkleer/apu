@@ -21,6 +21,10 @@
     citecolor = black
 }
 
+% neue Befehle
+\newcommand{\shine}[1]{\alert{\textbf{#1}}}
+\newcommand{\grayed}[1]{\textcolor{lightgray}{#1}}
+
 % Datumspaket
 \usepackage[german]{isodate}
 
@@ -63,15 +67,14 @@ opts_chunk$set(fig.path = 'pics/s6-', # path for calculated figures
                options(width = 60)
 )
 
+directory <- paste(getwd(), "/Folien/", sep="") #Set directory for latex inputs
 system (paste ("biber", sub ("\\.Rnw$", "", current_input())))
+Sys.setenv(TEXINPUTS = directory,
+           BIBINPUTS = directory,
+           BSTINPUTS = directory,
+           BCFINPUTS = directory)
 
-setwd("C:/Users/g31442/Documents/JLUG/Lehre/21_22 WiSe/APU/Slides")
-Sys.setenv(TEXINPUTS = getwd(),
-           BIBINPUTS = getwd(),
-           BSTINPUTS = getwd(),
-           BCFINPUTS = getwd())
-
-essat <- readRDS("C:/Users/g31442/Documents/JLUG/Lehre/21_22 WiSe/APU/Slides/data/essat.rds")
+essat <- readRDS("./data/essat.rds")
 @
 
 \begin{frame}

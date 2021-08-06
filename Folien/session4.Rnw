@@ -1,0 +1,175 @@
+\documentclass[11pt]{beamer}
+% Packages
+\usepackage{beamer-german}
+
+% Title etc.
+\title{Deskriptive Statistik}
+\subtitle{Analyse politischer Unterstützung in der quantitativen Forschungspraxis}
+\date{12. November 2021}
+\author{B..Philipp Kleer}
+\institute{Institut für Politikwissenschaft | Justus-Liebig-Universität Gießen}
+
+\setbeamerfont{itemize/enumerate body}{size = \small}
+\setbeamerfont{itemize/enumerate subbody}{size = \footnotesize}
+\setbeamerfont{itemize/enumerate subsubbody}{size = \scriptsize}
+
+% neue Befehle
+% \newcommand{\shine}[1]{\alert{\textbf{#1}}}
+% \newcommand{\grayed}[1]{\textcolor{lightgray}{#1}}
+
+\hypersetup{
+    colorlinks=true,
+    filecolor=Purple,    
+    linkcolor = orange,  
+    urlcolor= orange,
+    citecolor = black
+}
+
+% Datumspaket
+\usepackage[german]{isodate}
+
+% Table packages
+\usepackage{booktabs}
+\usepackage{longtable}
+
+\begin{document}
+% knitr Setup
+<<setup, include = FALSE, cache = FALSE>>=
+library("knitr")
+library("ggplot2")
+
+# set global chunk options
+opts_chunk$set(fig.path = 'figure/minimal-',
+               fig.align = 'center',
+               fig.show = 'hold',
+               echo = TRUE, 
+               eval = FALSE,
+               warning = FALSE, 
+               message = FALSE,
+               size = "footnotesize")
+options(formatR.arrow = TRUE,
+        width = 90)
+directory <- paste(getwd(), "/Folien/", sep="")
+
+Sys.setenv(TEXINPUTS = directory,
+           BIBINPUTS = directory,
+           BSTINPUTS = directory,
+           BCFINPUTS = directory)
+
+essat <- readRDS("./data/essat.rds")
+@
+
+\begin{frame}{To Do's heute}
+Erstens wollen wir heute zurück in die Programme finden. Dies ist entweder \shine{R} oder \shine{SPSS}.
+
+Zweitens wollen wir uns selbst Datensätze organisieren.
+
+$\Rightarrow$ Ziele sind daher:
+  \begin{enumerate}
+    \item Findet einen Datensatz zu poltischer Unterstützung, ladet ihn herunter.
+    \item Sucht in dem Datensatz 5 spezifische Items heraus und beschreibt die Verteilung der Variable im Datensatz.
+  \end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Datensatz finden}
+Oftmals erheben wir nicht selbst Daten, sondern analysieren Daten, die von großen Verbünden erhoben werden. So z.B. \shine{GLES}, \shine{ESS} oder auch \shine{ALLBUS}. Als Studierende erhält man diese Datensätze in der Regel kostenlos, man muss aber wissen wie man an diese herankommt. 
+
+Googlet und findet einen Datensatz, mit dem ihr arbeiten möchtet. 
+\end{frame}
+
+\begin{frame}{Deskriptive Statistik}
+Bevor wir Daten analysieren, schauen wir uns in der Regel die Verteilung der Variable an. Sucht euch daher 5 Items aus eurem gewählten Datensatz aus und beschreibt diese. Nutzt dazu gern eure Aufzeichnungen aus den Einführungskursen in \shine{R} oder \shine{SPSS} und wählt die Maße oder grafischen Darstellungen, die für euch Sinn machen. 
+\end{frame}
+
+\begin{frame}{Auf Los geht's los}
+Ihr habt \shine{60 Minuten} Zeit für die Aufgabe. 
+
+Anschließend stellen wir die Ergebnisse gegenseitig vor.
+
+\end{frame}
+
+\section{Recap Deskriptive Statistik R}
+
+\begin{frame}[fragile]{Deskriptiv in R}
+\shine{essat} ist ein Subset des ESS9 von Österreich.
+
+<<descriptiveR, eval=TRUE>>=
+summary(essat$stfdem)
+
+sd(essat$stfdem,
+   na.rm = TRUE)
+
+var(essat$stfdem,
+    na.rm = TRUE)   
+@
+\end{frame}
+
+\begin{frame}[fragile]{Grafik in R}
+Mit library \shine{ggplot2} ganz leicht!
+<<grafikR, eval=FALSE>>=
+ggplot(essat,
+       aes(stfdem)) +
+  geom_bar() +
+  scale_x_continuous(breaks = seq(0, 
+                                  10, 
+                                  1))
+@
+\end{frame}
+
+\begin{frame}[fragile, shrink=30]{Grafik in R}
+<<grafik2R, eval=TRUE, echo=FALSE>>=
+ggplot(essat,
+       aes(stfdem)) +
+  geom_bar() +
+  scale_x_continuous(breaks = seq(0, 
+                                  10, 
+                                  1))
+@
+\end{frame}
+
+\section{Recap Deskriptive Statistik SPSS}
+
+\begin{frame}[fragile]{Deskriptiv in SPSS}
+Hier haben wir nun ein Subset des \shine{WVS} aus Taiwan. Item \shine{V84} ist politisches Interesse.
+
+<<deskriptivSPSS>>=
+DESCRIPTIVES VARIABLES=V84
+  /STATISTICS=MEAN STDDEV VARIANCE MIN MAX.
+@
+\end{frame}
+
+\begin{frame}[fragile]{Grafik in SPSS}
+Hier haben wir nun ein Subset des \shine{WVS} aus Taiwan. Item \shine{V84} ist politisches Interesse.
+
+<<grafikSPSS, size="scriptsize">>=
+GGRAPH
+  /GRAPHDATASET NAME="graphdataset" 
+      VARIABLES=V84 COUNT()[name="COUNT"]
+      MISSING=LISTWISE REPORTMISSING=NO
+  /GRAPHSPEC SOURCE=INLINE.
+BEGIN GPL
+  SOURCE: s=userSource(id("graphdataset"))
+  DATA: V84=col(source(s), name("V84"), unit.category())
+  DATA: COUNT=col(source(s), name("COUNT"))
+  GUIDE: axis(dim(1), label("Interest in politics"))
+  GUIDE: axis(dim(2), label("Anzahl"))
+  GUIDE: text.title(label("Einfache Balken Anzahl von Interest in politics"))
+  SCALE: cat(dim(1), include("1", "2", "3", "4"))
+  SCALE: linear(dim(2), include(0))
+  ELEMENT: interval(position(V84*COUNT), shape.interior(shape.square))
+END GPL.
+@
+\end{frame}
+
+\begin{frame}[fragile]{Grafik in SPSS}
+\center
+\begin{figure}[ht]
+	\includegraphics[width=0.7\textwidth]{figure/descriptive-spss.png}
+	\caption{\textbf{Einfache SPSS-Ausgabe}}
+\end{figure}
+\end{frame}
+
+\section{Bis in zwei Wochen!}
+
+\end{document}

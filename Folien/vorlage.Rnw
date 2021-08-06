@@ -1,0 +1,132 @@
+\documentclass[9pt]{beamer}
+% Packages
+\usepackage{beamer-german}
+
+% Title etc.
+\title{\textsc{Guide durch Rnw-Files}}
+\subtitle{Hiwi-Training}
+\date{26. Juli 2021}
+\author{B. Philipp Kleer}
+\institute{Institut für Politikwissenschaft | Justus-Liebig-Universität Gießen}
+
+\setbeamerfont{itemize/enumerate body}{size = \small}
+\setbeamerfont{itemize/enumerate subbody}{size = \footnotesize}
+\setbeamerfont{itemize/enumerate subsubbody}{size = \scriptsize}
+
+\hypersetup{
+    colorlinks=true,
+    filecolor=Purple,    
+    linkcolor = orange,  
+    urlcolor= orange,
+    citecolor = black
+}
+
+% Datumspaket
+\usepackage[german]{isodate}
+
+% Table packages
+\usepackage{booktabs}
+\usepackage{longtable}
+
+% bibtex-file
+\usepackage[backend=biber]{biblatex}
+\addbibresource{lit-vorlage.bib} 
+
+% automatischer Linebreak
+\XeTeXlinebreaklocale
+%flexibler Zeichenabstand
+\XeTeXlinebreakskip = 0pt plus 1pt
+%Abstand zwischen Absätzen
+\setlength{\parskip}{0.10cm}
+%Zeilenabstand
+\linespread{1.2}\selectfont
+
+\begin{document}
+
+% knitr Setup
+<<setup, include = FALSE, cache = FALSE>>=
+library("knitr")
+
+# set global chunk options
+opts_chunk$set(fig.path = 'pics/s6-', # path for calculated figures
+               fig.align = 'center',  # alignment of figure (also possible right, left, default)
+               fig.show = 'hold', # how to show figures: hold -> direct at the end of code chunk; animate: all plots in an animation
+               fig.width = 3,   # figure width
+               fig.height = 4,  # figure height
+               echo = TRUE,     # Code is printed
+               eval = FALSE,    # Code is NOT evaluated
+               warning = FALSE, # warnings are NOT displayed
+               message = FALSE, # messages are NOT displayed
+               size = "scriptsize",  # latex-size of code chunks
+               background = "#E7E7E7", # background color of code chunks
+               comment = "", # no hashtags before output
+               tidy.opts = list(width.cutoff = 25),
+               options(width = 60)
+)
+
+system (paste ("biber", sub ("\\.Rnw$", "", current_input())))
+
+# bibfile folder einstellen
+directory <-  paste(getwd(), "/Folien/", sep = "")
+Sys.setenv(TEXINPUTS = directory,
+           BIBINPUTS = directory,
+           BSTINPUTS = directory,
+           BCFINPUTS = directory)
+@
+
+% title slide
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% column slide
+\begin{frame}[t]{Spalten}
+	\begin{columns}
+		\begin{column}[t]{.5\textwidth} %Breite einstellen
+            Text in erster Spalte
+		\end{column}
+		\begin{column}[t]{.5\textwidth} %Breite einstellen
+            Zweite Spalte, auch mehr als zwei Spalten möglich
+		\end{column}
+	\end{columns}
+\end{frame}
+
+% Citations
+\begin{frame}[fragile]{Wie zitiere ich?}
+    Mit biblatex kann ganz normal zitiert werden, also mit:
+    \begin{itemize}
+        \item \begin{verbatim}\parencite{Kleer2021}\end{verbatim} $\Rightarrow$ \parencite{Kleer2021}
+        \item \begin{verbatim}\parencite[276]{Kleer2021}\end{verbatim} $\Rightarrow$ \parencite[276]{Kleer2021}
+        \item \begin{verbatim}\cite{Kleer2021}\end{verbatim} $\Rightarrow$ \cite{Kleer2021}
+        \item \begin{verbatim}\cite*{Kleer2021}\end{verbatim} $\Rightarrow$ \cite*{Kleer2021}
+    \end{itemize}
+
+    Wichtig ist, dass bei \shine{frame} \textit{fragile} als option gesetzt wir (\begin{verbatim}\begin{frame}[fragile]{Titel}\end{verbatim})
+
+\end{frame}
+
+% Code 
+\begin{frame}[fragile]{Code-Chunk}
+Code-Chunks können ganz einfach eingeführt werden. Wichtig ist, dass man manchmal die Schriftgröße (\shine{size}) anpassen muss. Wie in Markdown auch, funktionieren die Befehle \shine{eval} und \shine{echo}.
+
+\begin{verbatim} <<codechunk-r, size="scriptsize">>= \end{verbatim}
+\begin{verbatim}  sum <- 5 + 5 \end{verbatim}
+\begin{verbatim} @ \end{verbatim}
+
+<<codechunk2-r, size="scriptsize">>=
+sum <- 5 + 5
+@
+\end{frame}
+
+% Literatur Slide
+\renewcommand*{\bibfont}{\scriptsize}
+
+\begin{frame}[allowframebreaks]{Literatur}
+	\nocite{*}
+	\printbibliography[heading = none]
+\end{frame}
+
+%Final Slide
+\section{Bis zum nächsten Mal!}
+
+\end{document}
