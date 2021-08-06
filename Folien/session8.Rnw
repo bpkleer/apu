@@ -1,0 +1,434 @@
+\documentclass[9pt]{beamer}
+% Packages
+\usepackage{beamer-german}
+
+% Title etc.
+\title{\textsc{Grafische Darstellungen}}
+\subtitle{Analyse politischer Unterstützung in der quantitativen Forschungspraxis}
+\date{10. Dezember 2021}
+\author{B. Philipp Kleer}
+\institute{Institut für Politikwissenschaft | Justus-Liebig-Universität Gießen}
+
+\setbeamerfont{itemize/enumerate body}{size = \small}
+\setbeamerfont{itemize/enumerate subbody}{size = \footnotesize}
+\setbeamerfont{itemize/enumerate subsubbody}{size = \scriptsize}
+
+\hypersetup{
+    colorlinks=true,
+    filecolor=Purple,    
+    linkcolor = orange,  
+    urlcolor= orange,
+    citecolor = black
+}
+
+% Datumspaket
+\usepackage[german]{isodate}
+
+% Table packages
+\usepackage{booktabs}
+\usepackage{longtable}
+
+% bibtex-file
+\usepackage[backend=biber]{biblatex}
+% \addbibresource{lit-vorlage.bib} 
+
+% automatischer Linebreak
+\XeTeXlinebreaklocale
+%flexibler Zeichenabstand
+\XeTeXlinebreakskip = 0pt plus 1pt
+%Abstand zwischen Absätzen
+\setlength{\parskip}{0.10cm}
+%Zeilenabstand
+\linespread{1.2}\selectfont
+
+\begin{document}
+
+% knitr Setup
+<<setup, include = FALSE, cache = FALSE>>=
+library("knitr")
+library("scales")
+library("ggplot2")
+
+# set global chunk options
+opts_chunk$set(fig.path = 'pics/s6-', # path for calculated figures
+               fig.align = 'center',  # alignment of figure (also possible right, left, default)
+               fig.show = 'hold', # how to show figures: hold -> direct at the end of code chunk; animate: all plots in an animation
+               fig.width = 3,   # figure width
+               fig.height = 4,  # figure height
+               echo = TRUE,     # Code is printed
+               eval = FALSE,    # Code is NOT evaluated
+               warning = FALSE, # warnings are NOT displayed
+               message = FALSE, # messages are NOT displayed
+               size = "scriptsize",  # latex-size of code chunks
+               background = "#E7E7E7", # background color of code chunks
+               comment = "", # no hashtags before output
+               tidy.opts = list(width.cutoff = 25),
+               options(width = 60)
+)
+
+# system (paste ("biber", sub ("\\.Rnw$", "", current_input())))
+
+# bibfile folder einstellen
+directory <- paste(getwd(), 
+                    "/Folien/",
+                    sep = "")
+# Sys.setenv(TEXINPUTS = directory,
+#            BIBINPUTS = directory,
+#            BSTINPUTS = directory,
+#            BCFINPUTS = directory)
+
+essat <- readRDS(file = "/Users/jlug/Documents/GitLab/apu/Folien/data/essat.rds")
+@
+
+% title slide
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{To Do's}
+Oftmals ist es hilfreich einzelne Variablen oder Zusammenhänge zwischen Variablen nicht nur als Tabelle darzustellen, sondern auch grafisch. Dies erleichtert oftmals die Informationsverarbeitung und ist ein wichtiger Bestandteil jeder Datenanalyse!
+
+  \begin{enumerate}
+    \item Wiederholen Skalenniveaus \& Grafiken
+    \item Grafiken erstellen in R \& SPSS
+  \end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Skalenniveaus}
+Schaut ins Codebook des ESS und überlegt welches Skalenniveau die folgenden Variablen haben:
+
+  \begin{itemize}
+    \item stfdem
+    \item[] 
+    \item agea
+    \item[] 
+    \item region
+    \item[] 
+    \item ppltrst
+    \item[] 
+    \item polintr
+    \item[] 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Skalenniveaus}
+Schaut ins Codebook des ESS und überlegt welches Skalenniveau die folgenden Variablen haben:
+
+  \begin{itemize}
+    \item stfdem 
+    \item[$\Rightarrow$] ordinal/pseudo-metrisch
+    \item agea  
+    \item[] 
+    \item region  
+    \item[] 
+    \item ppltrst  
+    \item[] 
+    \item polintr  
+    \item[] 
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Skalenniveaus}
+Schaut ins Codebook des ESS und überlegt welches Skalenniveau die folgenden Variablen haben:
+
+  \begin{itemize}
+    \item stfdem  
+    \item[$\Rightarrow$] ordinal/pseudo-metrisch
+    \item agea 
+    \item[$\Rightarrow$] metrisch  
+    \item region  
+    \item[] 
+    \item ppltrst  
+    \item[] 
+    \item polintr  
+    \item[] 
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Skalenniveaus}
+Schaut ins Codebook des ESS und überlegt welches Skalenniveau die folgenden Variablen haben:
+
+  \begin{itemize}
+    \item stfdem  
+    \item[$\Rightarrow$] ordinal/pseudo-metrisch
+    \item agea  
+    \item[$\Rightarrow$] metrisch  
+    \item region 
+    \item[$\Rightarrow$] nominal 
+    \item ppltrst  
+    \item[] 
+    \item polintr  
+    \item[]  
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Skalenniveaus}
+Schaut ins Codebook des ESS und überlegt welches Skalenniveau die folgenden Variablen haben:
+
+  \begin{itemize}
+    \item stfdem  
+    \item[$\Rightarrow$] ordinal/pseudo-metrisch
+    \item agea  
+    \item[$\Rightarrow$] metrisch  
+    \item region  
+    \item[$\Rightarrow$] nominal 
+    \item ppltrst 
+    \item[$\Rightarrow$] ordinal/pseudo-metrisch 
+    \item polintr  
+    \item[] 
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Skalenniveaus}
+Schaut ins Codebook des ESS und überlegt welches Skalenniveau die folgenden Variablen haben:
+
+  \begin{itemize}
+    \item stfdem  
+    \item[$\Rightarrow$] ordinal/pseudo-metrisch
+    \item agea  
+    \item[$\Rightarrow$] metrisch  
+    \item region  
+    \item[$\Rightarrow$] nominal 
+    \item ppltrst  
+    \item[$\Rightarrow$] ordinal/pseudo-metrisch 
+    \item polintr 
+    \item[$\Rightarrow$] ordinal  
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Welche Arten von Plots kennt ihr noch?}
+  \begin{itemize}
+    \item univariate Plots \pause
+      \begin{itemize}
+        \item Balkendiagramm \pause
+        \item Boxplot \pause
+        \item Histogramm \pause
+        \item Pie-Chart \pause
+        \item Ridgeline-Plot \pause
+      \end{itemize}
+    \item bivariate Plots \pause
+      \begin{itemize}
+        \item Scatterplot (Punktdiagramm) \pause
+        \item Count-Plot \pause
+      \end{itemize}
+    \item gruppierte Grafiken  \pause
+  \end{itemize}
+\end{frame}
+  
+\section{Grafiken in SPSS}
+
+\begin{frame}{Grafiken in SPSS}
+Grafiken in SPSS sind per Code nur sehr schwer einzustellen. Daher gilt bei SPSS einfach \shine{Click \& Play} über das Menü.
+\end{frame}
+
+\section{Grafiken in R}
+
+\begin{frame}[fragile]{Balkendiagramme}
+Zur Wiederholung: Am einfachsten zu nutzen ist das \textit{package} \shine{ggplot2}.
+
+Für ein Balkendiagramm können wir folgendes eingeben:
+<<balkenR>>=
+ggplot(essat, 
+       aes(polintr, 
+           fill = as.factor(polintr))) +
+  geom_bar() + 
+  scale_x_continuous(breaks = seq(1, 4, 1)) + 
+  geom_text(stat = "count", 
+            aes(label= ..count..), 
+            vjust = -0.3, 
+            size = 3.5) +
+  labs(x = "Politisches Interesse", 
+       y = "Häufigkeit")  +
+  scale_fill_manual(name = "Ausprägung", 
+                    labels = c("very interested", 
+                               "quite interested",
+                               "hardly interested",
+                               "not at all interested"),
+                    values = c("mediumseagreen",
+                               "firebrick",
+                               "blue",
+                               "goldenrod"))
+@
+\end{frame}
+
+\begin{frame}{R Output}
+  \begin{center}
+    \begin{figure}[ht]
+    	\includegraphics[width=.8\textwidth]{figure/s8-1.png}
+    	\caption{\textbf{R Ausgabe}}
+    \end{figure}
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Boxplot}
+<<boxplotR>>=
+ggplot(essat, 
+       aes(agea)) +
+  geom_boxplot(fill = "mediumseagreen") +
+  scale_x_continuous(breaks = seq(15, 95, 5))
+@
+\end{frame}
+
+\begin{frame}{Boxplot}
+  \begin{center}
+    \begin{figure}[ht]
+    	\includegraphics[width=.8\textwidth]{figure/s8-2.png}
+    	\caption{\textbf{R Ausgabe}}
+    \end{figure}
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Histogramm}
+<<histR>>=
+ggplot(essat, 
+       aes(agea)) + 
+  geom_histogram(aes(y = ..density..), 
+                 color = "lightgray", 
+                 fill = "gray") + 
+  geom_density(alpha = 0.2, 
+               fill = "lightblue") +
+  labs(x = "Age in years", 
+       y = "Density", 
+       title = "Histogram of Age (ESS9)")
+@
+\end{frame}
+
+\begin{frame}{Histogramm}
+  \begin{center}
+    \begin{figure}[ht]
+    	\includegraphics[width=.8\textwidth]{figure/s8-3.png}
+    	\caption{\textbf{R Ausgabe}}
+    \end{figure}
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Piechart}
+<<pieR>>=
+ggplot(essat, 
+       aes(x = factor(1), 
+           fill = region)) +
+  geom_bar(width = 1) +
+  coord_polar("y") +
+  theme(
+    axis.title.x = element_blank(),
+    axis.text.x = element_blank(),
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    panel.border = element_blank(),
+    panel.grid = element_blank(),
+    axis.ticks = element_blank()) +
+  labs(fill ="NUTS2 Region")
+@
+\end{frame}
+
+\begin{frame}{PieChart}
+  \begin{center}
+    \begin{figure}[ht]
+    	\includegraphics[width=.8\textwidth]{figure/s8-4.png}
+    	\caption{\textbf{R Ausgabe}}
+    \end{figure}
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Scatterplot}
+<<scatterR>>=
+ggplot(essat, 
+       aes(stfdem, 
+           ppltrst)) + 
+  geom_point() +
+  geom_jitter(width = 0.3, 
+              height = 0.3) +
+   labs(x = "Zufreidenheit Demokratie", 
+        y = "Vertrauen in Menschen", 
+        title = "Scatterplot mit Jitter") +
+   scale_y_continuous(breaks = seq(0, 10, 1)) + 
+   scale_x_continuous(breaks = seq(0, 10, 1))
+@
+\end{frame}
+
+\begin{frame}{Scatterplot}
+  \begin{center}
+    \begin{figure}[ht]
+    	\includegraphics[width=.8\textwidth]{figure/s8-5.png}
+    	\caption{\textbf{R Ausgabe}}
+    \end{figure}
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Countplot}
+<<countR>>=
+ggplot(essat, 
+       aes(stfdem, 
+           ppltrst)) + 
+  geom_count(aes(color = ..n.., 
+                 size = ..n..)) +  
+  guides(color = "legend") 
+@
+\end{frame}
+
+\begin{frame}{Countplot}
+  \begin{center}
+    \begin{figure}[ht]
+    	\includegraphics[width=.8\textwidth]{figure/s8-6.png}
+    	\caption{\textbf{R Ausgabe}}
+    \end{figure}
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Facets}
+Zu jedem können wir beliebig \shine{facets} hinzufügen. Zum Beispiel beim Boxplot nach \textit{gndr}:
+<<facetR>>=
+ggplot(essat, 
+       aes(stfdem, 
+           ppltrst,
+           color = as.factor(gndr))) + 
+  geom_point() +
+  geom_jitter(width = 0.3, 
+              height = 0.3) +
+   labs(x = "Zufreidenheit Demokratie", 
+        y = "Vertrauen in Menschen", 
+        title = "Scatterplot mit Jitter") +
+   scale_y_continuous(breaks = seq(0, 10, 1)) + 
+   scale_x_continuous(breaks = seq(0, 10, 1)) +
+  facet_grid(. ~ gndr) +
+  scale_color_manual(name = "Gender", 
+                     labels = c("Female", 
+                                "Male"),
+                     values = c("mediumseagreen",
+                                "goldenrod")) 
+@
+\end{frame}
+
+\begin{frame}{Countplot}
+  \begin{center}
+    \begin{figure}[ht]
+    	\includegraphics[width=.8\textwidth]{figure/s8-7.png}
+    	\caption{\textbf{R Ausgabe}}
+    \end{figure}
+  \end{center}
+\end{frame}
+
+\section{Lab task}
+
+\begin{frame}{Grafiken erstellen}
+Erstellt für folgende Variablen jeweils eine passende grafische Darstellung.
+
+  \begin{enumerate}
+    \item \textit{stfgov}
+    \item \textit{eduyrs}
+    \item \textit{vote}
+    \item \textit{vote, sgnptit}
+    \item \textit{ppltrst, stfgov, region}
+  \end{enumerate}
+\end{frame}
+
+%Final Slide
+\section{Bis zum nächsten Mal!}
+
+\end{document}
