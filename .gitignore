@@ -26,6 +26,7 @@ Syllabus/*.run.xml
 Syllabus/*.snm
 Syllabus/*.soc
 Syllabus/*.pdf
+Syllabus/*.synctex.gz
 
 Folien/*.aux
 Folien/*.bcf
