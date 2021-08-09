@@ -1,9 +1,9 @@
-\documentclass[9pt]{beamer}
+\documentclass[11pt]{beamer}
 % Packages
 \usepackage{beamer-german}
 
 % Title etc.
-\title{\textsc{Grafische Darstellungen}}
+\title{Grafische Darstellungen}
 \subtitle{Analyse politischer Unterstützung in der quantitativen Forschungspraxis}
 \date{10. Dezember 2021}
 \author{B. Philipp Kleer}
@@ -12,14 +12,6 @@
 \setbeamerfont{itemize/enumerate body}{size = \small}
 \setbeamerfont{itemize/enumerate subbody}{size = \footnotesize}
 \setbeamerfont{itemize/enumerate subsubbody}{size = \scriptsize}
-
-\hypersetup{
-    colorlinks=true,
-    filecolor=Purple,    
-    linkcolor = orange,  
-    urlcolor= orange,
-    citecolor = black
-}
 
 % Datumspaket
 \usepackage[german]{isodate}
@@ -88,10 +80,10 @@ essat <- readRDS(file = "/Users/jlug/Documents/GitLab/apu/Folien/data/essat.rds"
 \begin{frame}{To Do's}
 Oftmals ist es hilfreich einzelne Variablen oder Zusammenhänge zwischen Variablen nicht nur als Tabelle darzustellen, sondern auch grafisch. Dies erleichtert oftmals die Informationsverarbeitung und ist ein wichtiger Bestandteil jeder Datenanalyse!
 
-  \begin{enumerate}
+  \begin{nolist}
     \item Wiederholen Skalenniveaus \& Grafiken
     \item Grafiken erstellen in R \& SPSS
-  \end{enumerate}
+  \end{nolist}
 
 \end{frame}
 
@@ -233,7 +225,7 @@ Grafiken in SPSS sind per Code nur sehr schwer einzustellen. Daher gilt bei SPSS
 Zur Wiederholung: Am einfachsten zu nutzen ist das \textit{package} \shine{ggplot2}.
 
 Für ein Balkendiagramm können wir folgendes eingeben:
-<<balkenR>>=
+<<balkenR, size = "tiny">>=
 ggplot(essat, 
        aes(polintr, 
            fill = as.factor(polintr))) +
@@ -344,7 +336,7 @@ ggplot(essat,
   geom_point() +
   geom_jitter(width = 0.3, 
               height = 0.3) +
-   labs(x = "Zufreidenheit Demokratie", 
+   labs(x = "Zufriedenheit Demokratie", 
         y = "Vertrauen in Menschen", 
         title = "Scatterplot mit Jitter") +
    scale_y_continuous(breaks = seq(0, 10, 1)) + 
@@ -383,7 +375,7 @@ ggplot(essat,
 
 \begin{frame}[fragile]{Facets}
 Zu jedem können wir beliebig \shine{facets} hinzufügen. Zum Beispiel beim Boxplot nach \textit{gndr}:
-<<facetR>>=
+<<facetR, size = "tiny">>=
 ggplot(essat, 
        aes(stfdem, 
            ppltrst,
@@ -419,16 +411,16 @@ ggplot(essat,
 \begin{frame}{Grafiken erstellen}
 Erstellt für folgende Variablen jeweils eine passende grafische Darstellung.
 
-  \begin{enumerate}
+  \begin{abclist}
     \item \textit{stfgov}
     \item \textit{eduyrs}
     \item \textit{vote}
     \item \textit{vote, sgnptit}
     \item \textit{ppltrst, stfgov, region}
-  \end{enumerate}
+  \end{abclist}
 \end{frame}
 
 %Final Slide
-\section{Bis zum nächsten Mal!}
+\section{Wir sehen uns in zwei Wochen!}
 
 \end{document}

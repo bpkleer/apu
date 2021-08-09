@@ -1,9 +1,9 @@
-\documentclass[9pt]{beamer}
+\documentclass[11pt]{beamer}
 % Packages
 \usepackage{beamer-german}
 
 % Title etc.
-\title{\textsc{Korrelation \& Mittelwertvergleiche}}
+\title{Korrelation \& Mittelwertvergleiche}
 \subtitle{Analyse politischer Unterstützung in der quantitativen Forschungspraxis}
 \date{26. November 2021}
 \author{B. Philipp Kleer}
@@ -12,18 +12,6 @@
 \setbeamerfont{itemize/enumerate body}{size = \small}
 \setbeamerfont{itemize/enumerate subbody}{size = \footnotesize}
 \setbeamerfont{itemize/enumerate subsubbody}{size = \scriptsize}
-
-\hypersetup{
-    colorlinks=true,
-    filecolor=Purple,    
-    linkcolor = orange,  
-    urlcolor= orange,
-    citecolor = black
-}
-
-% neue Befehle
-\newcommand{\shine}[1]{\alert{\textbf{#1}}}
-\newcommand{\grayed}[1]{\textcolor{lightgray}{#1}}
 
 % Datumspaket
 \usepackage[german]{isodate}
@@ -542,5 +530,7 @@ Stellt vor Beginn der Analyse Vermutungen über den Zusammenhang zwischen den Va
 Stellt die Ergebnisse tabellarisch für eine wissenschaftliche Arbeit dar. 
 
 \end{frame}
+
+\section{Wir sehen uns in zwei Wochen!}
 
 \end{document}

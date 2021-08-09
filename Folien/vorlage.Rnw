@@ -1,4 +1,4 @@
-\documentclass[9pt]{beamer}
+\documentclass[11pt]{beamer}
 % Packages
 \usepackage{beamer-german}
 
@@ -12,14 +12,6 @@
 \setbeamerfont{itemize/enumerate body}{size = \small}
 \setbeamerfont{itemize/enumerate subbody}{size = \footnotesize}
 \setbeamerfont{itemize/enumerate subsubbody}{size = \scriptsize}
-
-\hypersetup{
-    colorlinks=true,
-    filecolor=Purple,    
-    linkcolor = orange,  
-    urlcolor= orange,
-    citecolor = black
-}
 
 % Datumspaket
 \usepackage[german]{isodate}
@@ -118,6 +110,44 @@ sum <- 5 + 5
 @
 \end{frame}
 
+\begin{frame}[fragile]{Nummerierte Liste}
+Um nummerierte Listen ausgeben zu lassen, bitte \textbf{nolist} nutzen:
+
+\begin{verbatim}
+\begin{nolist}
+\item erstes item
+\item zweites Item
+\item drittes Item
+\end{nolist}
+\end{verbatim}
+
+	\begin{nolist}
+		\item erstes item
+		\item zweites Item
+		\item drittes Item
+	\end{nolist}
+\end{frame}
+
+\begin{frame}[fragile]{Beispiel Liste mit abc}
+Um nummerierte Listen ausgeben zu lassen, bitte \textbf{abclist} nutzen:
+
+\begin{verbatim}
+\begin{abclist}
+\item erstes item
+\item zweites Item
+\item drittes Item
+\end{abclist}
+\end{verbatim}
+
+	\begin{abclist}
+		\item erstes item
+		\item zweites Item
+		\item drittes Item
+	\end{abclist}
+\end{frame}
+
+
+
 % Literatur Slide
 \renewcommand*{\bibfont}{\scriptsize}
 
@@ -128,5 +158,7 @@ sum <- 5 + 5
 
 %Final Slide
 \section{Bis zum nächsten Mal!}
+% \section{Mittagspause! \\ Wir treffen uns um 12:30 Uhr wieder.}
+% \section{Wir sehen uns in zwei Wochen!}
 
 \end{document}

@@ -13,18 +13,6 @@
 \setbeamerfont{itemize/enumerate subbody}{size = \footnotesize}
 \setbeamerfont{itemize/enumerate subsubbody}{size = \scriptsize}
 
-% neue Befehle
-% \newcommand{\shine}[1]{\alert{\textbf{#1}}}
-% \newcommand{\grayed}[1]{\textcolor{lightgray}{#1}}
-
-\hypersetup{
-    colorlinks=true,
-    filecolor=Purple,    
-    linkcolor = orange,  
-    urlcolor= orange,
-    citecolor = black
-}
-
 % Datumspaket
 \usepackage[german]{isodate}
 
@@ -59,16 +47,20 @@ Sys.setenv(TEXINPUTS = directory,
 essat <- readRDS("./data/essat.rds")
 @
 
+\begin{frame}
+  \maketitle
+\end{frame}
+
 \begin{frame}{To Do's heute}
 Erstens wollen wir heute zurück in die Programme finden. Dies ist entweder \shine{R} oder \shine{SPSS}.
 
 Zweitens wollen wir uns selbst Datensätze organisieren.
 
 $\Rightarrow$ Ziele sind daher:
-  \begin{enumerate}
+  \begin{nolist}
     \item Findet einen Datensatz zu poltischer Unterstützung, ladet ihn herunter.
     \item Sucht in dem Datensatz 5 spezifische Items heraus und beschreibt die Verteilung der Variable im Datensatz.
-  \end{enumerate}
+  \end{nolist}
 \end{frame}
 
 
@@ -170,6 +162,6 @@ END GPL.
 \end{figure}
 \end{frame}
 
-\section{Bis in zwei Wochen!}
+\section{Wir sehen uns in zwei Wochen!}
 
 \end{document}

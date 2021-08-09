@@ -1,0 +1,558 @@
+\documentclass[9pt]{beamer}
+% Packages
+\usepackage{beamer-german}
+
+% Title etc.
+\title{Lineare Regression}
+\subtitle{Analyse politischer Unterstützung in der quantitativen Forschungspraxis}
+\date{21. Januar 2022}
+\author{B. Philipp Kleer}
+\institute{Institut für Politikwissenschaft | Justus-Liebig-Universität Gießen}
+
+\setbeamerfont{itemize/enumerate body}{size = \small}
+\setbeamerfont{itemize/enumerate subbody}{size = \footnotesize}
+\setbeamerfont{itemize/enumerate subsubbody}{size = \scriptsize}
+
+% Datumspaket
+\usepackage[german]{isodate}
+
+% Table packages
+\usepackage{booktabs}
+\usepackage{longtable}
+
+% bibtex-file
+\usepackage[backend=biber]{biblatex}
+% \addbibresource{lit-vorlage.bib} 
+
+% automatischer Linebreak
+\XeTeXlinebreaklocale
+%flexibler Zeichenabstand
+\XeTeXlinebreakskip = 0pt plus 1pt
+%Abstand zwischen Absätzen
+\setlength{\parskip}{0.10cm}
+%Zeilenabstand
+\linespread{1.2}\selectfont
+
+\begin{document}
+
+% knitr Setup
+<<setup, include = FALSE, cache = FALSE>>=
+library("knitr")
+library("scales")
+library("ggplot2")
+
+# set global chunk options
+opts_chunk$set(fig.path = 'pics/s6-', # path for calculated figures
+               fig.align = 'center',  # alignment of figure (also possible right, left, default)
+               fig.show = 'hold', # how to show figures: hold -> direct at the end of code chunk; animate: all plots in an animation
+               fig.width = 3,   # figure width
+               fig.height = 4,  # figure height
+               echo = TRUE,     # Code is printed
+               eval = FALSE,    # Code is NOT evaluated
+               warning = FALSE, # warnings are NOT displayed
+               message = FALSE, # messages are NOT displayed
+               size = "scriptsize",  # latex-size of code chunks
+               background = "#E7E7E7", # background color of code chunks
+               comment = "", # no hashtags before output
+               tidy.opts = list(width.cutoff = 25),
+               options(width = 60)
+)
+
+# system (paste ("biber", sub ("\\.Rnw$", "", current_input())))
+
+# bibfile folder einstellen
+directory <- paste(getwd(), 
+                    "/Folien/",
+                    sep = "")
+# Sys.setenv(TEXINPUTS = directory,
+#            BIBINPUTS = directory,
+#            BSTINPUTS = directory,
+#            BCFINPUTS = directory)
+
+load(file="./data/workspace4-knitr.RData")
+@
+
+% title slide
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{To Do's}
+Mit einer linearen Regression schätzen wir die kausale Beziehung zwischen einer (oder mehr) unabhängigen Variablen und einer abhängigen Variable. Das Modell wird i.d.R. mit dem Verfahren \shine{Ordinary-Least-Squares} (OLS) geschätzt und so erhalten wir den besten linearen Schätzer (\shine{Best Linear Unbiased Estimator} - BLUE). Dafür müssen mehrere Annahmen erfüllt sein. 
+Basierend auf theoretischen Annahmen oder empirischer Evidenz anderer Forscher:innen (state of the art) schätzen wir ein Modell. Die unabhängigen Variablen werden oftmals geteilt in Kontroll-variablen und Variablen, über die wir theoretische Annahmen testen möchten.
+
+Was sollte aus der Erinnerung hängen geblieben sei
+
+  \begin{itemize}
+    \item Ziel der linearen Regression
+    \item Eigenschaften der linearen Regression
+    \item lineare Beziehung
+    \item grundlegende Mathematik hinter der linearen Regression
+(OLS Annahmen)
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Ziele der linearen Regression}
+Mit der linearen Regression können wir folgende Fragen beantworten:
+
+  \begin{nolist}
+    \item Kann das Modell Varianz in der abhängigen Variable erklären?
+    \item Wie viel kann das Modell erklären?
+    \item Ist der Effekt der unabhängigen Variable signifikant?
+    \item In welche Richtung wirkt der Effekt der unabhängigen Variable?
+    \item Wie stark ist der Effekt der unabhängigen Variable (und wie stark ist er in Relation zu weiteren unabhängigen Variablen)?
+  \end{nolist}
+
+\end{frame}
+
+\begin{frame}{Eigenschaften der linearen Regression}
+Folgende Bedingungen müssen vorliegen, um eine lineare Regression berechnen zu können:
+  \begin{itemize}
+    \item[$\checkmark$] abhängige Variable muss (pseudo-)metrisch sein
+    \item[$\checkmark$] unabhängige Variablen können (pseudo-)metrisch oder kategoriell sein
+    \item[$\checkmark$] die Beziehung zwischen jeder unabhängigen Variable und der abhängigen Variable muss linear sein
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Lineare Beziehung}
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      In unserem Beispiel nutzen wir nun erstmal den Datensatz \shine{statistics}. Wir möchten ein Modell berechnen, in dem wir einen Effekt der Note in der ersten Prüfung (\textit{grade}) auf die Note in der dritten Prüfung (\textit{grade3}) berechnen.
+Was könnte unsere theoretische Annahme dafür sein?
+Eine lineare Beziehung können wir über ein Scatterplot testen.
+    \end{column}
+    \begin{column}{.5\textwidth}
+    	\begin{figure}[ht]
+    		\includegraphics[width=\textwidth]{figure/s10-1.png}
+	    	\caption{\textbf{Lineare Relation}}
+    	\end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Grundlegende Mathematik in der linearen Regression}
+Wir berechnen in unserem Beispiel zuerst eine bivariate lineare Regression:
+
+  \begin{itemize}
+    \item abhängige Variable: grade3 ($Y$)
+    \item unabhängige Variable: grade ($X_1$)
+    \item Gleichung dieses (bivariaten) Regressionsmodells: $$Y = \beta_0 + \beta_1 * X_1 + \varepsilon, \varepsilon \sim \mathcal{N}(0, \sigma^2)$$
+  \end{itemize}
+  
+  $Y$ ist die abhängige Variable, $X_1$ ist die unabhängige Variable und $\varepsilon$ sind die Residuen.
+  
+\end{frame}
+
+\begin{frame}{Grundlegende Mathematik in der linearen Regression}
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      Was ist nochmal $\varepsilon$?
+      
+      Und was bedeutet nochmal der Ausdruck $\varepsilon \sim \mathcal{N}(0, \sigma^2)$
+    \end{column}
+    \begin{column}{.5\textwidth}
+    	\begin{figure}[ht]
+    		\includegraphics[width=\textwidth]{figure/s10-2.png}
+	    	\caption{\textbf{Lineare Relation}}
+    	\end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Grundlegende Mathematik in der linearen Regression}
+Zurück zur Gleichung:
+
+$$Y = \beta_0 + \beta_1 * X_1 + \varepsilon$$
+
+Wir können die Gleichung auch für jeden Fall aufstellen, mit einem Laufindex:
+$$ Y_i = \beta_0 + \beta_1 * x_i + \epsilon_i$$
+
+Lineare Regressionen werden standardmäßig mit dem \shine{Ordinary-Least-Squared}-Verfahren (OLS) berechnet. Was heißt das nochmal?
+
+$$\sum_{i=1}^n(\hat{y_i} - y_i)^2 \to min.$$
+
+$\Rightarrow$ Das Modell wählt die Linie, die die summierten quadrierten Abstände minimiert. 
+\end{frame}
+
+\begin{frame}{Grundlegende Mathematik in der linearen Regression}
+Wir können für die Darstellung auch Matrix-Algebra nutzen. Dies hilft (manchen) es besser in R zu verstehen, da wir hier auch Vektoren, Matrizen und Data Frames (als spezielle Form einer Matrix) arbeiten:
+
+$$Y = X\beta + E$$
+
+$$\begin{bmatrix}y_1 \\y_2 \\... \\y_n \\\end{bmatrix} = \begin{bmatrix} 1 & x_1 \\ 1 & x_2 \\ 1 & ...\\ 1 & x_n\\ \end{bmatrix} \begin{bmatrix}\beta_0 \\ \beta_1\\\end{bmatrix} + \begin{bmatrix}\epsilon_1 \\ \epsilon_2 \\ ... \\ \epsilon_n \\ \end{bmatrix}$$
+
+Das Modell berechnet die Matrix $\beta$ - im bivariaten Fall zwei Koeffizienten:
+
+Konstante und Steigerung der unabhängigen Variable. Als Ergebnis der Berechnung der Koeffizienten ergibt sich $E$ (Residuum, Differenz zu beobachteten Werten).
+\end{frame}
+
+\section{Bivariate lineare Regression}
+
+\begin{frame}{Lineare Beziehung}
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      In unserem Beispiel nutzen wir nun erstmal den Datensatz \shine{statistics}. Wir möchten ein Modell berechnen, in dem wir einen Effekt der Note in der ersten Prüfung (\textit{grade}) auf die Note in der dritten Prüfung (\textit{grade3}) berechnen.
+Was könnte unsere theoretische Annahme dafür sein?
+Eine lineare Beziehung können wir über ein Scatterplot testen.
+    \end{column}
+    \begin{column}{.5\textwidth}
+    	\begin{figure}[ht]
+    		\includegraphics[width=\textwidth]{figure/s10-1.png}
+	    	\caption{\textbf{Lineare Relation}}
+    	\end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Beispiel}
+Kommen wir zurück zum Beispiel. Wie sieht die Regressionsgleichung für unser Beispiel aus?
+
+$$Y = \hat{\beta_0} + \hat{\beta_1}*X_1 + \hat{\varepsilon}$$
+
+Wir können auch folgendes schreiben:
+
+$$Y = \beta_0 + \beta_1*X_1 + e$$
+
+$$grade_3 = \beta_0 + \beta_1*grade_1 + e$$
+
+Oder für jede Beobachtung:
+
+$${grade_3}_i = \beta_0 + \beta_1*{grade_1}_i + e_i$$
+
+Warum können wir kein Modell berechnen, in dem die Note der ersten Prüfung (\textit{grade}) durch die Note der dritten Prüfung (\textit{grade3}) berechnet wird?
+\end{frame}
+
+\begin{frame}[fragile]{Berechnung}
+In R nutzen wir die Funktion \shine{lm()} um ein lineares Regressionsmodell zu berechnen. Es ist wichtig die Formel zu kennen, da wir das Modell als Formel angeben. 
+
+Wir speichern das Ergebnis der Modellberechnung in einem Modell!
+<<biregR>>=
+ols.model <- lm(grade3 ~ 1 + grade,
+                data = statistics)  
+@
+
+In \shine{SPSS}:
+<<biregSPSS, size="Tiny">>=
+REGRESSION
+  /DESCRIPTIVES MEAN STDDEV CORR SIG N
+  /MISSING LISTWISE
+  /STATISTICS COEFF OUTS CI(95) R ANOVA CHANGE
+  /CRITERIA=PIN(.05) POUT(.10)
+  /NOORIGIN 
+  /DEPENDENT grade3
+  /METHOD=ENTER grade.
+@
+\end{frame}
+
+\begin{frame}[fragile]{Ausgabe}
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+<<bireg2R, eval=TRUE, echo=FALSE, size ="Tiny">>=
+summary(ols.model)
+@
+    \end{column}
+    \begin{column}{.5\textwidth}
+    	\begin{figure}[ht]
+    		\includegraphics[width=\textwidth]{figure/s10-3.png}
+	    	\caption{\textbf{Ausgabe SPSS}}
+    	\end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Interpretation}
+<<coefR, eval=TRUE, echo=FALSE>>=
+coef(ols.model) # Zeile 52
+@
+
+Wie interpretieren wir den \shine{mean}?
+
+$\Rightarrow$ Mit jedem Ansteig um eine Einheit in \textit{grade}, steigt auch \textit{grade3} um $0.93486$ Punkte.
+\end{frame}
+
+\begin{frame}{Interpretation Konfidenzintervalle}
+Was sagen uns das Konfidenzintervall und der p-Wert?
+
+  \begin{itemize}
+    \item wir haben den \textit{mean effect} von \textit{grade} auf \textit{grade3} berechnet und das Konfidenzintervall dieses Effekts
+    \item mit Signifikanztests (in den meisten Fällen t-Tests) schließen wir aus, dass der Populationswert ($\mu$) dieser Berechnung gleich $0$ ist (signifikanter p-Wert): Es ist dann sehr unwahrscheinlich (95 \%), dass $\mu = 0$
+    \item der p-Wert erlaubt uns nicht zu sagen, dass der wahre Wert dem berechneten Wert entspricht (z.B. mit 95 \% Sicherheit ist der wahre Mittelwert innerhalb des berechneten Konfidenzintervalls). Denn wir wissen nicht, ob unsere Stichprobe eine der Stichproben ist, die den wahren Wert ($\mu$) inkludiert (95 \% der Stichproben inkludieren den Wert)
+    \item nicht-signifikante Werte sagen uns daher, dass wir nicht ausschließen können, dass der wahre Populationswert ($\mu$) gleich $0$ ist; wir können nicht sagen, dass der wahre Wert gleich $0$ ist.
+    \item[$\Rightarrow$] Verwirrt? Einfach daran erinnern, dass es hier um Falsifikation und nicht um Verifikation geht (Grundlage der empirischen Sozialforschung!).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Bestimmtheitsmaß}
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      Das Bestimmtheits ($R^2$) liefert die Information, wie viel der Varianz der abhängigen Variablen durch das Modell erklärt werden können. 
+
+      Die Gleichung lautet:
+
+      $$R^2 = \frac{\sum_{i=1}^n(\hat{y_i}-\bar{y})^2}{\sum_{i=1}^n(y_i-\bar{y})^2} = \frac{erklärte \, Varianz}{gesamte \, Varianz}$$
+    \end{column}
+    \begin{column}{.5\textwidth}
+    	\begin{figure}[ht]
+    		\includegraphics[width=\textwidth]{figure/s10-4.png}
+	    	\caption{\textbf{Bestimmtheitsmaß}}
+    	\end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Ergebnis des Beispiel}
+Wie beschreiben wir nun das Ergebnis?
+
+Das Modell erklärt $93 \%$ der Varianz der Note der 3. Prüfung (\textit{grade3}) (\shine{$R^2$}). Eine höhere Note in der 1. Prüfung (\textit{grade}) ist positiv verbunden mit der Note in der 3. Prüfung (\textit{grade3}). Mit jedem Anstieg um eine Einheit in der ersten Prüfung, steigt der Wert der dritten Prüfung um $0.93486$. Der Effekt von \textit{grade} auf \textit{grade3} ist signifikant ($p<0.001$).
+
+\end{frame}
+
+\section{Multivariate lineare Regression}
+
+\begin{frame}[fragile]{Wie erweitern wir das Modell?}
+Wir erweitern das Modell um die Variable \textit{term}. Wie sieht unsere lineare Gleichung aus? 
+
+$Y = \beta_0 + \beta_1*X_1 + \beta_2*X_2 + e$
+
+$grade_3 = \beta_0 + \beta_1*grade_1 + \beta_2*term + e$
+
+Dies setzen wir einfach in der **lm()**-Funktion um:
+<<multiregR>>=
+ols.model2 <- lm(grade3 ~ 1 + grade + term,   
+                 data = statistics)            
+
+summary(ols.model2)
+@
+
+in \shine{SPSS}:
+Letzte Argument erweitern:  
+<<multiregSPSS>>=
+/METHOD=ENTER grade term.
+@ 
+\end{frame}
+
+\begin{frame}{Multivariate lineare Regression}
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      Wie interpretieren wir das Ergebnis? 
+      
+      Schreibe ein paar Zeilen in das Skript!
+    \end{column}
+    \begin{column}{.5\textwidth}
+    	\begin{figure}[ht]
+    		\includegraphics[width=.8\textwidth]{figure/s10-5.png}
+	    	\caption{\textbf{Ergebnis multivariate lin. Regression}}
+    	\end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Wir erweitern das Modell weiter}
+In den Sozialwissenschaften nutzen wir oftmals Variablen mit nominalen oder ordinalem Skalenniveau. Diese können wir auch in das lineare Regressionsmodell als unabhängige Variable hinzufügen. Wir müssen nur verstehen, welchen zusätzlichen Effekt wir berechnen. Wir müssen Dummy-Variablen kreieren, die den Unterschied einer Ausprägung auf der Variablen in Referenz zu einer anderen Ausprägung angeben (Referenzkategorie). In der Funktion \shine{lm()} ist dies leicht umzusetzen.
+
+Wir möchten die Variable tutorial mit in unser Modell aufnehmen (ja/nein). Welche theoretische Annahme können wir über den Effekt treffen?
+
+Was gleichen wir in der Regressionsgleichung an?
+\end{frame}
+
+\begin{frame}[fragile]{Multivariate lineare Regression: Kategorielle Variable}
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      <<dummyR>>=
+ggplot(data = statistics,
+       aes(x = tutorial,
+           y = grade3)) +
+  geom_point() +
+  geom_jitter(width = 0.2,
+              height = 0.2)
+@
+    \end{column}
+    \begin{column}{.5\textwidth}
+      <<dummy2R, echo=FALSE, eval=TRUE>>=
+ggplot(data = statistics,
+       aes(x = tutorial,
+           y = grade3)) +
+  geom_point() +
+  geom_jitter(width = 0.2,
+              height = 0.2)
+@
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Kategorielle und metrische Variable}
+Wie wir bereits wissen, hat eine dichotome Variable keine lineare Beziehung zu einer metrischen Variable. Deshalb benötigen wir \shine{Dummy}-Variablen. Wir berechnen ein Modell, in dem der zusätzliche Effekt einer Ausprägung gegenüber der anderen Ausprägung geschätzt wird (konstanter Effekt!).
+
+Welche Ausprägungen liegen in der Variable \textit{tutorial} vor?
+  \begin{itemize}
+    \item ja
+    \item nein
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Berechnen des Modells}
+Auch hier müssen wir nur entsprechend der erweiterten Gleichung nur die Variable tutorial hinzufügen:
+<<dummyregR>>=
+ols.model3 <- lm(grade3 ~ 1 + grade + term + tutorial,
+                 data = statistics)
+summary(ols.model3)
+confint(ols.model3)
+@
+
+Was ist die Referenzkategorie? Welchen Effekt berechnen wir mit der Variable \textit{tutorialyes}?
+
+In \shine{SPSS} ist es komplizierter! Hier muss erst eine Dummy-Variable recodiert werden ($0/1$), wobei die Referenzkategorie auf $0$ gesetzt wird.
+\end{frame}
+
+\begin{frame}[fragile]{Dummy-Variable in SPSS}
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      In \shine{SPSS} ist das ganze umständlicher, da Variablen in der Regression automatisch als metrisch angesehen werden. Es können also nicht einfach kategorielle Variablen hinzugefügt werden. Zuerst muss man sogenannte Dummy-Variablen bilden.
+      \begin{itemize}
+        \item für eine nominale/ordinale Variable kann man so viele Dummies bilden, wie die Variable Merkmalsausprägungen hat
+        \item Ein Dummy wird nicht hinzugefügt, sondern bleibt als Referenzkategorie außen vor hier nun 
+      \end{itemize}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      <<dummySPSS>>=
+RECODE tutorial (2=0) (1=1) INTO tut_no.
+RECODE tutorial (2=1) (1=0) INTO tut_yes.
+EXECUTE.
+REGRESSION
+  /DESCRIPTIVES MEAN STDDEV CORR SIG N
+  /MISSING LISTWISE
+  /STATISTICS COEFF OUTS CI(95) R ANOVA CHANGE
+  /CRITERIA=PIN(.05) POUT(.10)
+  /NOORIGIN
+  /DEPENDENT grade3
+  /METHOD=ENTER grade term tut_yes.
+@
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Interpretation des Modells}
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      Wie interpretieren wir das Ergebnis?
+
+      Schreibe ein paar Zeilen in das Skript!
+    \end{column}
+    \begin{column}{.5\textwidth}
+    	\begin{figure}[ht]
+    		\includegraphics[width=.8\textwidth]{figure/s10-6.png}
+	    	\caption{\textbf{Ergebnis multivariate lin. Regression}}
+    	\end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Multivariate lineare Regression mit polytomer kategorieller Variable}
+Wir können nicht nur \shine{dichotome}, sondern auch \shine{polytome} kategorielle Variablen in das Regressionsmodell hinzufügen. Wir möchten nun die Variable \textit{learner} ins Modell aufnehmen. Diese Variable beinhaltet die Lerngeschwindigkeit. Welche theoretischen Annahmen könnten wir für den Effekt von \textit{learner} treffen?
+<<learnerR, eval=TRUE>>=
+str(statistics$learner)
+@
+
+Wir fügen einfach die Variable, wie zuvor, in der \shine{lm()}-Funktion hinzu:
+<<lastR>>=
+ols.model4 <- lm(grade3 ~ 1 + grade + term + tutorial + learner,
+                 data = statistics)
+summary(ols.model4)
+@
+\end{frame}
+
+\begin{frame}[fragile]{Multivariate lineare Regression mit polytomer kategorieller Variable}
+In \shine{SPSS} müssen nun drei Dummy-Variablen recodiert werden, von denen zwei in die Regressionsgleichung eingefügt werden.
+<<learnerSPSS>>=
+RECODE learner (1=0) (2=0) (3=1) INTO learn_fast.
+RECODE learner (1=0) (2=1) (3=0) INTO learn_med.
+RECODE learner (1=1) (2=0) (3=0) INTO learn_slow.
+EXECUTE.
+REGRESSION
+  /DESCRIPTIVES MEAN STDDEV CORR SIG N
+  /MISSING LISTWISE
+  /STATISTICS COEFF OUTS CI(95) R ANOVA CHANGE
+  /CRITERIA=PIN(.05) POUT(.10)
+  /NOORIGIN
+  /DEPENDENT grade3
+  /METHOD=ENTER grade term learn_fast learn_slow.
+@
+\end{frame}
+
+\begin{frame}[fragile]{Berechnung des Modells}
+  \begin{columns}
+    \begin{column}{.4\textwidth}
+      Wie hat die Funktion \shine{lm()} die polytome Variable in das Modell eingefügt?
+
+      Was ist die Referenzkategorie?
+
+      Wir können die Referenzkategorie mit der Funktion \shine{relevel()} ändern:
+
+      <<relevelR, size="tiny">>=
+statistics$learner <- relevel(
+  statistics$learner,
+  ref = "medium"
+  )
+@
+    \end{column}
+    \begin{column}{.6\textwidth}
+    	<<resultdumR, eval=TRUE, echo=FALSE, size="tiny">>=
+      summary(ols.model4)
+@
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Neuberechnung}
+Dann müssen wir nur das Modell erneut berechnen:
+<<renewR>>=
+ols.model5 <- lm(grade3 ~ 1 + grade + term + tutorial + learner,
+                 data = statistics)
+summary(ols.model5)
+@
+\end{frame}
+
+\begin{frame}{Interpretation}
+    \begin{columns}
+    \begin{column}{.5\textwidth}
+      Wie interpretieren wir das Ergebnis?
+
+      Schreibe ein paar Zeilen in das Skript!
+    \end{column}
+    \begin{column}{.5\textwidth}
+    	\begin{figure}[ht]
+    		\includegraphics[width=.9\textwidth]{figure/s10-7.png}
+	    	\caption{\textbf{Ergebnis multivariate lin. Regression}}
+    	\end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Wrap-Up: Kategorielle Variablen}
+  \begin{itemize}
+    \item kategorielle Variablen können in ein lineares Regressionsmodell als uV hinzugefügt werden
+    \item Interpretation ist besonders, immer in Referenz zur ausgeschlossenen Kategorie
+  \end{itemize}
+\end{frame}
+
+\section{Lab Task}
+
+\begin{frame}{Aufgabe}
+Wählt aus eurem Forschungsinteresse heraus eine abhängige Variable. Ihr könnt einen Datensatz frei wählen.
+
+Berechnet eine lineare Regression, die folgendes erfüllt:
+
+  \begin{nolist}
+    \item mind. 5 unabhängige Variablen gesamt
+    \item mind. 2 unabhängige Variablen (pseudo-)metrisches Skalenniveau
+    \item mind. 2 unabhängige Variablen kategorielles Skalenniveau
+  \end{nolist}
+
+  Stellt vor Beginn der Analyse Vermutungen über die Wirkung der uV’s auf!
+\end{frame}
+
+%Final Slide
+\section{Wir sehen uns in zwei Wochen!}
+
+\end{document}
