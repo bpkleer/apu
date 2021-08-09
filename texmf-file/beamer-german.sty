@@ -2,14 +2,17 @@
 \usepackage[utf8]{inputenc}
 
 % Progress bar in foot
-\metroset{progressbar = foot}
-\metroset{block=fill}
-\metroset{titleformat frame=smallcaps, titleformat section=smallcaps} 
-
+\metroset{progressbar=foot ,
+				block=fill,
+				sectionpage=progressbar}
+ 
 % Size of Progress bar
 \makeatletter
-\setlength{\metropolis@progressinheadfoot@linewidth}{1.5pt}
+\setlength{\metropolis@progressinheadfoot@linewidth}{2pt}
 \makeatother
+
+% define yellow color
+\definecolor{metropolisYellow}{HTML}{EB811B}
 
 % engines für Text
 \usepackage[utf8]{inputenc} % Umlaute
@@ -38,7 +41,13 @@
 
 % Hyperlinks & Color
 \usepackage{hyperref} 
-
+\hypersetup{
+    colorlinks=true,
+    filecolor=Purple,    
+    linkcolor = orange,  
+    urlcolor= orange,
+    citecolor = metropolisYellow
+}
 
 % TikZ
 \usepackage{tikz}
@@ -70,3 +79,16 @@
 \newcommand{\shine}[1]{\alert{\textbf{#1}}}
 
 \newcommand{\grayed}[1]{\textcolor{lightgray}{#1}}
+
+% enumerations
+\usepackage{enumitem}
+% create abc-list
+\newlist{abclist}{enumerate}{1}
+\setlist[abclist,1]{label=\textbf{\alph*.}}
+% nolist
+\newlist{nolist}{enumerate}{1}
+\setlist[nolist,1]{label=\textbf{\arabic*})}
+%Setting itemize
+\setitemize{label=\usebeamerfont*{itemize item}%
+  \usebeamercolor[fg]{itemize item}
+  \usebeamertemplate{itemize item}}
