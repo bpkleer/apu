@@ -62,14 +62,14 @@ opts_chunk$set(fig.path = 'pics/s6-', # path for calculated figures
 
 # bibfile folder einstellen
 directory <- paste(getwd(), 
-                    "/Folien/",
+                    "/Folien-Code/",
                     sep = "")
 # Sys.setenv(TEXINPUTS = directory,
 #            BIBINPUTS = directory,
 #            BSTINPUTS = directory,
 #            BCFINPUTS = directory)
 
-essat <- readRDS(file = "/Users/jlug/Documents/GitLab/apu/Folien/data/essat.rds")
+essat <- readRDS("./data/essat.rds")
 @
 
 % title slide
@@ -252,7 +252,7 @@ ggplot(essat,
 \begin{frame}{R Output}
   \begin{center}
     \begin{figure}[ht]
-    	\includegraphics[width=.8\textwidth]{figure/s8-1.png}
+    	\includegraphics[width=.8\textwidth]{pics/s8-1.png}
     	\caption{\textbf{R Ausgabe}}
     \end{figure}
   \end{center}
@@ -270,7 +270,7 @@ ggplot(essat,
 \begin{frame}{Boxplot}
   \begin{center}
     \begin{figure}[ht]
-    	\includegraphics[width=.8\textwidth]{figure/s8-2.png}
+    	\includegraphics[width=.8\textwidth]{pics/s8-2.png}
     	\caption{\textbf{R Ausgabe}}
     \end{figure}
   \end{center}
@@ -294,7 +294,7 @@ ggplot(essat,
 \begin{frame}{Histogramm}
   \begin{center}
     \begin{figure}[ht]
-    	\includegraphics[width=.8\textwidth]{figure/s8-3.png}
+    	\includegraphics[width=.8\textwidth]{pics/s8-3.png}
     	\caption{\textbf{R Ausgabe}}
     \end{figure}
   \end{center}
@@ -322,7 +322,7 @@ ggplot(essat,
 \begin{frame}{PieChart}
   \begin{center}
     \begin{figure}[ht]
-    	\includegraphics[width=.8\textwidth]{figure/s8-4.png}
+    	\includegraphics[width=.8\textwidth]{pics/s8-4.png}
     	\caption{\textbf{R Ausgabe}}
     \end{figure}
   \end{center}
@@ -347,7 +347,7 @@ ggplot(essat,
 \begin{frame}{Scatterplot}
   \begin{center}
     \begin{figure}[ht]
-    	\includegraphics[width=.8\textwidth]{figure/s8-5.png}
+    	\includegraphics[width=.8\textwidth]{pics/s8-5.png}
     	\caption{\textbf{R Ausgabe}}
     \end{figure}
   \end{center}
@@ -367,7 +367,7 @@ ggplot(essat,
 \begin{frame}{Countplot}
   \begin{center}
     \begin{figure}[ht]
-    	\includegraphics[width=.8\textwidth]{figure/s8-6.png}
+    	\includegraphics[width=.8\textwidth]{pics/s8-6.png}
     	\caption{\textbf{R Ausgabe}}
     \end{figure}
   \end{center}
@@ -400,7 +400,7 @@ ggplot(essat,
 \begin{frame}{Countplot}
   \begin{center}
     \begin{figure}[ht]
-    	\includegraphics[width=.8\textwidth]{figure/s8-7.png}
+    	\includegraphics[width=.8\textwidth]{pics/s8-7.png}
     	\caption{\textbf{R Ausgabe}}
     \end{figure}
   \end{center}

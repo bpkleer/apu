@@ -62,7 +62,7 @@ opts_chunk$set(fig.path = 'pics/s6-', # path for calculated figures
 
 # bibfile folder einstellen
 directory <- paste(getwd(), 
-                    "/Folien/",
+                    "/Folien-Code/",
                     sep = "")
 # Sys.setenv(TEXINPUTS = directory,
 #            BIBINPUTS = directory,
@@ -124,7 +124,7 @@ Eine lineare Beziehung können wir über ein Scatterplot testen.
     \end{column}
     \begin{column}{.5\textwidth}
     	\begin{figure}[ht]
-    		\includegraphics[width=\textwidth]{figure/s10-1.png}
+    		\includegraphics[width=\textwidth]{pics/s10-1.png}
 	    	\caption{\textbf{Lineare Relation}}
     	\end{figure}
     \end{column}
@@ -153,7 +153,7 @@ Wir berechnen in unserem Beispiel zuerst eine bivariate lineare Regression:
     \end{column}
     \begin{column}{.5\textwidth}
     	\begin{figure}[ht]
-    		\includegraphics[width=\textwidth]{figure/s10-2.png}
+    		\includegraphics[width=\textwidth]{pics/s10-2.png}
 	    	\caption{\textbf{Lineare Relation}}
     	\end{figure}
     \end{column}
@@ -198,7 +198,7 @@ Eine lineare Beziehung können wir über ein Scatterplot testen.
     \end{column}
     \begin{column}{.5\textwidth}
     	\begin{figure}[ht]
-    		\includegraphics[width=\textwidth]{figure/s10-1.png}
+    		\includegraphics[width=\textwidth]{pics/s10-1.png}
 	    	\caption{\textbf{Lineare Relation}}
     	\end{figure}
     \end{column}
@@ -254,7 +254,7 @@ summary(ols.model)
     \end{column}
     \begin{column}{.5\textwidth}
     	\begin{figure}[ht]
-    		\includegraphics[width=\textwidth]{figure/s10-3.png}
+    		\includegraphics[width=\textwidth]{pics/s10-3.png}
 	    	\caption{\textbf{Ausgabe SPSS}}
     	\end{figure}
     \end{column}
@@ -294,7 +294,7 @@ Was sagen uns das Konfidenzintervall und der p-Wert?
     \end{column}
     \begin{column}{.5\textwidth}
     	\begin{figure}[ht]
-    		\includegraphics[width=\textwidth]{figure/s10-4.png}
+    		\includegraphics[width=\textwidth]{pics/s10-4.png}
 	    	\caption{\textbf{Bestimmtheitsmaß}}
     	\end{figure}
     \end{column}
@@ -341,7 +341,7 @@ Letzte Argument erweitern:
     \end{column}
     \begin{column}{.5\textwidth}
     	\begin{figure}[ht]
-    		\includegraphics[width=.8\textwidth]{figure/s10-5.png}
+    		\includegraphics[width=.8\textwidth]{pics/s10-5.png}
 	    	\caption{\textbf{Ergebnis multivariate lin. Regression}}
     	\end{figure}
     \end{column}
@@ -441,7 +441,7 @@ REGRESSION
     \end{column}
     \begin{column}{.5\textwidth}
     	\begin{figure}[ht]
-    		\includegraphics[width=.8\textwidth]{figure/s10-6.png}
+    		\includegraphics[width=.8\textwidth]{pics/s10-6.png}
 	    	\caption{\textbf{Ergebnis multivariate lin. Regression}}
     	\end{figure}
     \end{column}
@@ -522,7 +522,7 @@ summary(ols.model5)
     \end{column}
     \begin{column}{.5\textwidth}
     	\begin{figure}[ht]
-    		\includegraphics[width=.9\textwidth]{figure/s10-7.png}
+    		\includegraphics[width=.9\textwidth]{pics/s10-7.png}
 	    	\caption{\textbf{Ergebnis multivariate lin. Regression}}
     	\end{figure}
     \end{column}

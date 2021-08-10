@@ -27,17 +27,25 @@ library("knitr")
 library("ggplot2")
 
 # set global chunk options
-opts_chunk$set(fig.path = 'figure/minimal-',
-               fig.align = 'center',
-               fig.show = 'hold',
-               echo = TRUE, 
-               eval = FALSE,
-               warning = FALSE, 
-               message = FALSE,
-               size = "footnotesize")
+opts_chunk$set(fig.path = 'pics/s6-', # path for calculated figures
+               fig.align = 'center',  # alignment of figure (also possible right, left, default)
+               fig.show = 'hold', # how to show figures: hold -> direct at the end of code chunk; animate: all plots in an animation
+               fig.width = 3,   # figure width
+               fig.height = 4,  # figure height
+               echo = TRUE,     # Code is printed
+               eval = FALSE,    # Code is NOT evaluated
+               warning = FALSE, # warnings are NOT displayed
+               message = FALSE, # messages are NOT displayed
+               size = "scriptsize",  # latex-size of code chunks
+               background = "#E7E7E7", # background color of code chunks
+               comment = "", # no hashtags before output
+               tidy.opts = list(width.cutoff = 25),
+               options(width = 60)
+)
+
 options(formatR.arrow = TRUE,
         width = 90)
-directory <- paste(getwd(), "/Folien/", sep="")
+directory <- paste(getwd(), "/Folien-Code/", sep="")
 
 Sys.setenv(TEXINPUTS = directory,
            BIBINPUTS = directory,
@@ -157,7 +165,7 @@ END GPL.
 \begin{frame}[fragile]{Grafik in SPSS}
 \center
 \begin{figure}[ht]
-	\includegraphics[width=0.7\textwidth]{figure/descriptive-spss.png}
+	\includegraphics[width=0.7\textwidth]{pics/descriptive-spss.png}
 	\caption{\textbf{Einfache SPSS-Ausgabe}}
 \end{figure}
 \end{frame}
