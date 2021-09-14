@@ -20,6 +20,8 @@
 \usepackage{booktabs}
 \usepackage{longtable}
 
+\addbibresource{lit-s1.bib}
+
 \begin{document}
 
 \begin{frame}
@@ -239,21 +241,21 @@ Führe dort die Umfrage aus!
 			\toprule[2pt]
 			Sitzung & Text & Textexperte(n)\\
 			\midrule
-			\multirow{2}{*}{29.10.2021} & Easton (1975) & \\
+			\multirow{2}{*}{29.10.2021} &\cite{Easton1975} & \\
 			\cmidrule{2-3}
 			& Fuhse (2005) & \\
 			\midrule
-			\multirow{3}{*}{12.11.2021} & Almond \& Verba 1963 (Kap. 1) & \\
+			\multirow{3}{*}{12.11.2021} & \cite[Kap. 1]{Almond1963} & \\
 			\cmidrule{2-3}
-			& Almond \& Verba 1963 & \\
+			& \cite[Kap. 15]{Almond1963} & \\
 			\cmidrule{2-3}
-			& Gabriel (2009) & \\
+			& \cite{Gabriel2009} & \\
 			\midrule
-			\multirow{4}{*}{26.11.2021} & Festenstein (2019) & \\
+			\multirow{4}{*}{26.11.2021} & \cite{Festenstein2019} & \\
 			\cmidrule{2-3}
-			& Zmerli (2020) & \\
+			& \cite{Zmerli2020}  & \\
 			\cmidrule{2-3}
-			& Hooghe \& Verstagen (2017) & \\
+			& \cite{Hooghe2017} & \\
 			\bottomrule[2pt]
 			\end{tabular}
 		\end{table}
@@ -267,19 +269,19 @@ Führe dort die Umfrage aus!
 			\toprule[2pt]
 			Sitzung & Text & Textexperte(n)\\
 			\midrule
-			\multirow{4}{*}{10.12.2021} & van Deth (2004) & \\
+			\multirow{4}{*}{10.12.2021} & \cite{vanDeth2004} & \\
 			\cmidrule{2-3}
-			& Westle (2020) & \\
+			& \cite{Westle2020} & \\
 			\cmidrule{2-3}
-			& Reichert \& Print (2019) & \\
+			& \cite{Reichert2019} & \\
 			\cmidrule{2-3}
-			& Russo \& Stattin (2017) & \\
+			& \cite{Russo2017} & \\
 			\midrule
-			\multirow{2}{*}{21.01.2022} & Welzel (2013) & \\
+			\multirow{2}{*}{21.01.2022} & \cite[Kap. 1]{Welzel2013} & \\
 			\cmidrule{2-3}
-			& Inglehart \& Welzel (2010) \\
+			& \cite{Inglehart2010} \\
 			\midrule
-			28.01.2022 & Welzel (2013) & \\
+			04.02.2022 & \cite[Kap. 10]{Welzel2013} & \\
 			\bottomrule[2pt]
 			
 			\end{tabular}
@@ -354,5 +356,10 @@ Führe dort die Umfrage aus!
 \end{frame}
 
 \section{Mittagspause! \\ Wir treffen uns um 12:30 Uhr wieder.}
+
+\begin{frame}[allowframebreaks]{Literatur}
+	\nocite{*}
+	\printbibliography[heading = none]
+\end{frame}
 
 \end{document}
