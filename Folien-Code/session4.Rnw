@@ -27,7 +27,7 @@ library("knitr")
 library("ggplot2")
 
 # set global chunk options
-opts_chunk$set(fig.path = 'pics/s6-', # path for calculated figures
+opts_chunk$set(#fig.path = 'pics/s6-', # path for calculated figures
                fig.align = 'center',  # alignment of figure (also possible right, left, default)
                fig.show = 'hold', # how to show figures: hold -> direct at the end of code chunk; animate: all plots in an animation
                fig.width = 3,   # figure width
