@@ -70,13 +70,15 @@ Dort muss es mindestens im Unterordner XeLaTeX hinterlegt werden (besser auch im
 Bei manchen Rechnern ist dieser Ordner versteckt. Um die versteckten Ordner sichtbar zu machen, einfach im Finder die Tastenkombination ```Cmd``` + ```Shift``` + ```.``` drücken. Dann werden die versteckten Ordner sichtbar. Wenn man die Ordner wieder verstecken möchte, einfach die Tastenkombination wiederholen. 
 
 # Schriftart Installation  
-**Metropolis** (Beamer-Theme) setzt die Schriftart *FiraSans* voraus. Diese ist [hier](https://fonts.google.com/specimen/Fira+Sans) zum Download verfügbar. Einfach in den Rechner-Schriftarten installieren.
+**Metropolis** (Beamer-Theme) setzt die Schriftart *FiraSans* und *FiraMono* voraus. Diese ist [hier](https://fonts.google.com/specimen/Fira+Sans) und [hier](https://fonts.google.com/specimen/Fira+Mono) zum Download verfügbar. Einfach in den Rechner-Schriftarten installieren.
 
 Bei **Windows** einfach Rechtsklick auf die Datei und im Menü **Installieren** auswählen. Wichtig, man benötigt Administratorenrechte.
 
 Bei **Mac** einfach Doppelklick auf die Schriftart-Datei. Es öffnet sich die Vorschau und dann kann man **Installieren** auswählen. 
 
 # Einstellungen RStudio (für ```.rnw```-Dateien)
+Bevor zum ersten Mal eine ```.rnw```-Datei kompiliert wird, muss die Datei aus **texmf** wie oben beschrieben abgespeichert werden und **MikTex** bzw. **MacTex** eingestellt sein. Ansonsten findet **tinyTex** die Vorlage nicht. 
+
 In RStudio unter **Global Options** muss bei **RSweave** folgendes eingestellt sein:
 
 - Weave rnw-files using: **knitr**
@@ -85,7 +87,7 @@ In RStudio unter **Global Options** muss bei **RSweave** folgendes eingestellt s
 
 - Kreuz bei *Use tinytex when compiling .tex files* setzen.
 
-Wenn *tinytex* noch nicht installiert ist, einfach über die *Console* in RStudio installieren. 
+Dann eine ```.rnw```-Datei öffnen und in der Leiste wird sichtbar, dass **tinytex** installiert werden muss. Dies klicken. Anschließend R Studio neustarten. 
 
 **Wichtig**: Die Datei **beamer-german.sty** aus dem Folder *texmf-file* muss im lokalen texmf-Ordner gespeichert werden. Andernfalls erkennt das Programm bei der Kompilierung die Standardeinstellungen nicht. 
 
