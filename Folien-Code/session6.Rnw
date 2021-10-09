@@ -324,10 +324,27 @@ Was sagen uns das Konfidenzintervall und der p-Wert?
 
 \setbeamerfont{itemize/enumerate body}{size = \scriptsize}
     \begin{itemize}
-        \item wir haben die Korrelation zwischen trstprl und trstplt berechnet und das Konfidenzintervall dieser Korrelation
-        \item mit Signifikanztests (in den meisten Fällen t-Tests) schließen wir aus, dass der Populationswert ($\mu$) dieser Berechnung gleich 0 ist (signifikanter p-Wert): Es ist dann sehr unwahrscheinlich (95 \%), dass $\mu=0$ (also die Korrelation gleich 0 ist!)
-        \item der p-Wert erlaubt uns nicht zu sagen, dass der wahre Wert dem berechneten Wert entspricht (z.B. mit 95 \% Sicherheit ist der wahre Mittelwert innerhalb des berechneten Konfidenzintervalls). Denn wir wissen nicht, ob unsere Stichprobe eine der Stichproben ist, die den wahren Wert ($\mu$) inkludiert (95 \% der Stichproben inkludieren den Wert)
-        \item nicht-signifikante Werte sagen uns daher, dass wir nicht ausschließen können, dass der wahre Populationswert ($\mu$) gleich 0 ist; wir können nicht sagen, dass der wahre Wert gleich 0 ist.
+        \item Wir haben die Korrelation zwischen trstprl und trstplt berechnet und das Konfidenzintervall dieser Korrelation
+        \item Mit Signifikanztests (in den meisten Fällen t-Tests) schließen wir aus, dass der Populationswert ($\mu$) dieser Berechnung gleich 0 ist (signifikanter p-Wert): Es ist dann sehr unwahrscheinlich (95 \%), dass $\mu=0$ (also die Korrelation gleich 0 ist!)
+    \end{itemize}
+    
+\setbeamerfont{itemize/enumerate body}{size = \small}\end{frame}
+
+\begin{frame}{Was hat es nochmal mit Signifikanz auf sich?}
+Was sagen uns das Konfidenzintervall und der p-Wert?
+
+\setbeamerfont{itemize/enumerate body}{size = \scriptsize}
+    \begin{itemize}
+        \item Der p-Wert erlaubt uns nicht zu sagen, dass der wahre Wert dem berechneten Wert entspricht (z.B. mit 95 \% Sicherheit ist der wahre Mittelwert innerhalb des berechneten Konfidenzintervalls). Denn wir wissen nicht, ob unsere Stichprobe eine der Stichproben ist, die den wahren Wert ($\mu$) inkludiert (95 \% der Stichproben inkludieren den Wert)
+        \item Nicht-signifikante Werte sagen uns daher, dass wir nicht ausschließen können, dass der wahre Populationswert ($\mu$) gleich 0 ist; wir können nicht sagen, dass der wahre Wert gleich 0 ist.
+    \end{itemize}
+    
+\setbeamerfont{itemize/enumerate body}{size = \small}\end{frame}
+
+\begin{frame}{Was hat es nochmal mit Signifikanz auf sich?}
+
+\setbeamerfont{itemize/enumerate body}{size = \scriptsize}
+    \begin{itemize}
         \item[$\Rightarrow$] Verwirrt? Einfach daran erinnern, dass es hier um Falsifikation und nicht um Verifikation geht (Grundlage der empirischen Sozialforschung!).
     \end{itemize}
     
@@ -477,7 +494,7 @@ pairwise.t.test(essat$wkhtot,
 \end{frame}
 
 \begin{frame}[fragile]{Ausgabe in R}
-<<ftestrResult, echo=FALSE, eval=TRUE>>=
+<<ftestrResult, echo=FALSE, eval=TRUE, size= "tiny">>=
 leveneTest(essat$wkhtot ~ essat$edu,
            center = "mean")
 oneway.test(essat$wkhtot ~
@@ -507,7 +524,14 @@ ONEWAY wkhtot BY edu
 
 \begin{frame}[fragile]{Auswertung in SPSS}
   \begin{figure}[ht]
-    \includegraphics[width=\textwidth]{pics/s6-8.png}
+    \includegraphics[width=\textwidth]{pics/s6-8.1.png}
+    \caption{\textbf{SPSS Ausgabe}}
+  \end{figure}    
+\end{frame}
+
+\begin{frame}[fragile]{Auswertung in SPSS}
+  \begin{figure}[ht]
+    \includegraphics[width=\textwidth]{pics/s6-8.2.png}
     \caption{\textbf{SPSS Ausgabe}}
   \end{figure}    
 \end{frame}
