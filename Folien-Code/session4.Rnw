@@ -154,10 +154,12 @@ BEGIN GPL
   DATA: COUNT=col(source(s), name("COUNT"))
   GUIDE: axis(dim(1), label("Interest in politics"))
   GUIDE: axis(dim(2), label("Anzahl"))
-  GUIDE: text.title(label("Einfache Balken Anzahl von Interest in politics"))
+  GUIDE: text.title(label("Einfache Balken Anzahl von Interest
+                          in politics"))
   SCALE: cat(dim(1), include("1", "2", "3", "4"))
   SCALE: linear(dim(2), include(0))
-  ELEMENT: interval(position(V84*COUNT), shape.interior(shape.square))
+  ELEMENT: interval(position(V84*COUNT), 
+                    shape.interior(shape.square))
 END GPL.
 @
 \end{frame}
