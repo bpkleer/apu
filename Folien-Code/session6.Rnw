@@ -392,7 +392,7 @@ t.test(essat$wkhtot ~ essat$gndr,
 \end{frame}
 
 \begin{frame}[fragile]{Ergebnis in R}
-<<ttestRResult, eval = TRUE, echo = FALSE, size = "tiny">>=
+<<ttestRResult, eval = TRUE, echo = FALSE, size = "Tiny">>=
 library("car")
 leveneTest(essat$wkhtot,
            essat$gndr,
