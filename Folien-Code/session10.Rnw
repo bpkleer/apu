@@ -78,10 +78,10 @@ load(file="./data/workspace4.RData")
 \end{frame}
 
 \begin{frame}{To Do's}
-Mit einer linearen Regression schätzen wir die kausale Beziehung zwischen einer (oder mehr) unabhängigen Variablen und einer abhängigen Variable. Das Modell wird i.d.R. mit dem Verfahren \shine{Ordinary-Least-Squares} (OLS) geschätzt und so erhalten wir den besten linearen Schätzer (\shine{Best Linear Unbiased Estimator} - BLUE). Dafür müssen mehrere Annahmen erfüllt sein. 
-Basierend auf theoretischen Annahmen oder empirischer Evidenz anderer Forscher:innen (state of the art) schätzen wir ein Modell. Die unabhängigen Variablen werden oftmals geteilt in Kontroll-variablen und Variablen, über die wir theoretische Annahmen testen möchten.
+Mit einer linearen Regression schätzen wir die kausale Beziehung zwischen einer (oder mehreren) unabhängigen Variablen und einer abhängigen Variable. Das Modell wird i.d.R. mit dem Verfahren \shine{Ordinary-Least-Squares} (OLS) geschätzt und so erhalten wir den besten linearen Schätzer (\shine{Best Linear Unbiased Estimator} - BLUE). Dafür müssen mehrere Annahmen erfüllt sein. 
+Basierend auf theoretischen Annahmen oder empirischer Evidenz anderer Forscher:innen (state of the art) schätzen wir ein Modell. Die unabhängigen Variablen werden oftmals geteilt in Kontrollvariablen und Variablen, über die wir theoretische Annahmen testen möchten.
 
-Was sollte aus der Erinnerung hängen geblieben sei
+Was sollte aus der Erinnerung hängen geblieben sein
 
   \begin{itemize}
     \item Ziel der linearen Regression
@@ -286,11 +286,11 @@ Was sagen uns das Konfidenzintervall und der p-Wert?
 \begin{frame}{Bestimmtheitsmaß}
   \begin{columns}
     \begin{column}{.5\textwidth}
-      Das Bestimmtheits ($R^2$) liefert die Information, wie viel der Varianz der abhängigen Variablen durch das Modell erklärt werden können. 
+      Das Bestimmtheitsmaß ($R^2$) liefert die Information, wie viel der Varianz der abhängigen Variablen durch das Modell erklärt werden können. 
 
       Die Gleichung lautet:
 
-      $$R^2 = \frac{\sum_{i=1}^n(\hat{y_i}-\bar{y})^2}{\sum_{i=1}^n(y_i-\bar{y})^2} = \frac{erklärte \, Varianz}{gesamte \, Varianz}$$
+      $$R^2 = \frac{\sum_{i=1}^n(\hat{y_i}-\bar{y})^2}{\sum_{i=1}^n(y_i-\bar{y})^2} = \frac{erklaerte \, Varianz}{gesamte \, Varianz}$$
     \end{column}
     \begin{column}{.5\textwidth}
     	\begin{figure}[ht]
@@ -317,7 +317,7 @@ $Y = \beta_0 + \beta_1*X_1 + \beta_2*X_2 + e$
 
 $grade_3 = \beta_0 + \beta_1*grade_1 + \beta_2*term + e$
 
-Dies setzen wir einfach in der **lm()**-Funktion um:
+Dies setzen wir einfach in der \shine{lm()}-Funktion um:
 <<multiregR>>=
 ols.model2 <- lm(grade3 ~ 1 + grade + term,   
                  data = statistics)            
@@ -326,7 +326,7 @@ summary(ols.model2)
 @
 
 in \shine{SPSS}:
-Letzte Argument erweitern:  
+Letztes  Argument erweitern:  
 <<multiregSPSS>>=
 /METHOD=ENTER grade term.
 @ 
