@@ -69,7 +69,7 @@ directory <- paste(getwd(),
 #            BSTINPUTS = directory,
 #            BCFINPUTS = directory)
 
-load(file="./data/workspace4-knitr.RData")
+load(file="./data/workspace4.RData")
 @
 
 % title slide
