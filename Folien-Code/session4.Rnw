@@ -66,8 +66,9 @@ Zweitens wollen wir uns selbst Datensätze organisieren.
 
 $\Rightarrow$ Ziele sind daher:
   \begin{nolist}
-    \item Findet einen Datensatz zu poltischer Unterstützung, ladet ihn herunter.
-    \item Sucht in dem Datensatz 5 spezifische Items heraus und beschreibt die Verteilung der Variable im Datensatz.
+    \item Findet einen sozialwissenschaftlichen (!) Datensatz, verschafft euch Zugang und ladet ihn herunter.
+    \item Findet im Datensatz mindestens fünf Items (Variablen), die einen Bezug zu \textit{a) politischer Unterstützung} oder \textit{b) politischer Kultur} haben. 
+    \item Beschreibt nun die Verteilung der Variable im Datensatz. Bestimmt auch das Skalenniveau und überlegt, wie ihr die Verteilung grafisch darstellen könnt.
   \end{nolist}
 \end{frame}
 
