@@ -77,122 +77,125 @@ essat <- readRDS("./data/essat.rds")
     \titlepage
 \end{frame}
 
-\begin{frame}{To Do's}
-Oftmals ist es hilfreich einzelne Variablen oder Zusammenhänge zwischen Variablen nicht nur als Tabelle darzustellen, sondern auch grafisch. Dies erleichtert oftmals die Informationsverarbeitung und ist ein wichtiger Bestandteil jeder Datenanalyse!
+\begin{frame}{Aufgabe}
+\shine{GLES-Datensatz: Vorwahlstudie 2017}
 
-  \begin{nolist}
-    \item Wiederholen Skalenniveaus \& Grafiken
-    \item Grafiken erstellen in R \& SPSS
-  \end{nolist}
+	\begin{nolist}
+		\item Finde Variablen zum Politischen Wissen. $\checkmark$
+		\item Bilde über diese Variablen einen Summenindex. Überlege, wie du den Summenindex bildest und beachte die gelernten Rekodierungsschritte. $\checkmark$
+	\end{nolist}
 
+  \shine{Jetzt:} Prüfen wir den Zusammenhang mit einer anderen Variable. Begründe dabei die Wahl der anderen Variable aus den Texten dieser Woche. Wende eine Methode an, die du im letzten Semester gelernt hast. Und stelle den Zusammenhang auch grafisch dar!
+  
+  \shine{Zeit: 45 Minuten.}
 \end{frame}
 
-\begin{frame}{Skalenniveaus}
-Schaut ins Codebook des ESS und überlegt welches Skalenniveau die folgenden Variablen haben:
+% \begin{frame}{Skalenniveaus}
+% Schaut ins Codebook des ESS und überlegt welches Skalenniveau die folgenden Variablen haben:
+% 
+%   \begin{itemize}
+%     \item stfdem
+%     \item[] 
+%     \item agea
+%     \item[] 
+%     \item region
+%     \item[] 
+%     \item ppltrst
+%     \item[] 
+%     \item polintr
+%     \item[] 
+%   \end{itemize}
+% \end{frame}
+% 
+% \begin{frame}{Skalenniveaus}
+% Schaut ins Codebook des ESS und überlegt welches Skalenniveau die folgenden Variablen haben:
+% 
+%   \begin{itemize}
+%     \item stfdem 
+%     \item[$\Rightarrow$] ordinal/pseudo-metrisch
+%     \item agea  
+%     \item[] 
+%     \item region  
+%     \item[] 
+%     \item ppltrst  
+%     \item[] 
+%     \item polintr  
+%     \item[] 
+%   \end{itemize}
+% 
+% \end{frame}
 
-  \begin{itemize}
-    \item stfdem
-    \item[] 
-    \item agea
-    \item[] 
-    \item region
-    \item[] 
-    \item ppltrst
-    \item[] 
-    \item polintr
-    \item[] 
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Skalenniveaus}
-Schaut ins Codebook des ESS und überlegt welches Skalenniveau die folgenden Variablen haben:
-
-  \begin{itemize}
-    \item stfdem 
-    \item[$\Rightarrow$] ordinal/pseudo-metrisch
-    \item agea  
-    \item[] 
-    \item region  
-    \item[] 
-    \item ppltrst  
-    \item[] 
-    \item polintr  
-    \item[] 
-  \end{itemize}
-
-\end{frame}
-
-\begin{frame}{Skalenniveaus}
-Schaut ins Codebook des ESS und überlegt welches Skalenniveau die folgenden Variablen haben:
-
-  \begin{itemize}
-    \item stfdem  
-    \item[$\Rightarrow$] ordinal/pseudo-metrisch
-    \item agea 
-    \item[$\Rightarrow$] metrisch  
-    \item region  
-    \item[] 
-    \item ppltrst  
-    \item[] 
-    \item polintr  
-    \item[] 
-  \end{itemize}
-
-\end{frame}
-
-\begin{frame}{Skalenniveaus}
-Schaut ins Codebook des ESS und überlegt welches Skalenniveau die folgenden Variablen haben:
-
-  \begin{itemize}
-    \item stfdem  
-    \item[$\Rightarrow$] ordinal/pseudo-metrisch
-    \item agea  
-    \item[$\Rightarrow$] metrisch  
-    \item region 
-    \item[$\Rightarrow$] nominal 
-    \item ppltrst  
-    \item[] 
-    \item polintr  
-    \item[]  
-  \end{itemize}
-
-\end{frame}
-
-\begin{frame}{Skalenniveaus}
-Schaut ins Codebook des ESS und überlegt welches Skalenniveau die folgenden Variablen haben:
-
-  \begin{itemize}
-    \item stfdem  
-    \item[$\Rightarrow$] ordinal/pseudo-metrisch
-    \item agea  
-    \item[$\Rightarrow$] metrisch  
-    \item region  
-    \item[$\Rightarrow$] nominal 
-    \item ppltrst 
-    \item[$\Rightarrow$] ordinal/pseudo-metrisch 
-    \item polintr  
-    \item[] 
-  \end{itemize}
-
-\end{frame}
-
-\begin{frame}{Skalenniveaus}
-Schaut ins Codebook des ESS und überlegt welches Skalenniveau die folgenden Variablen haben:
-
-  \begin{itemize}
-    \item stfdem  
-    \item[$\Rightarrow$] ordinal/pseudo-metrisch
-    \item agea  
-    \item[$\Rightarrow$] metrisch  
-    \item region  
-    \item[$\Rightarrow$] nominal 
-    \item ppltrst  
-    \item[$\Rightarrow$] ordinal/pseudo-metrisch 
-    \item polintr 
-    \item[$\Rightarrow$] ordinal  
-  \end{itemize}
-
-\end{frame}
+% \begin{frame}{Skalenniveaus}
+% Schaut ins Codebook des ESS und überlegt welches Skalenniveau die folgenden Variablen haben:
+% 
+%   \begin{itemize}
+%     \item stfdem  
+%     \item[$\Rightarrow$] ordinal/pseudo-metrisch
+%     \item agea 
+%     \item[$\Rightarrow$] metrisch  
+%     \item region  
+%     \item[] 
+%     \item ppltrst  
+%     \item[] 
+%     \item polintr  
+%     \item[] 
+%   \end{itemize}
+% 
+% \end{frame}
+% 
+% \begin{frame}{Skalenniveaus}
+% Schaut ins Codebook des ESS und überlegt welches Skalenniveau die folgenden Variablen haben:
+% 
+%   \begin{itemize}
+%     \item stfdem  
+%     \item[$\Rightarrow$] ordinal/pseudo-metrisch
+%     \item agea  
+%     \item[$\Rightarrow$] metrisch  
+%     \item region 
+%     \item[$\Rightarrow$] nominal 
+%     \item ppltrst  
+%     \item[] 
+%     \item polintr  
+%     \item[]  
+%   \end{itemize}
+% 
+% \end{frame}
+% 
+% \begin{frame}{Skalenniveaus}
+% Schaut ins Codebook des ESS und überlegt welches Skalenniveau die folgenden Variablen haben:
+% 
+%   \begin{itemize}
+%     \item stfdem  
+%     \item[$\Rightarrow$] ordinal/pseudo-metrisch
+%     \item agea  
+%     \item[$\Rightarrow$] metrisch  
+%     \item region  
+%     \item[$\Rightarrow$] nominal 
+%     \item ppltrst 
+%     \item[$\Rightarrow$] ordinal/pseudo-metrisch 
+%     \item polintr  
+%     \item[] 
+%   \end{itemize}
+% 
+% \end{frame}
+% 
+% \begin{frame}{Skalenniveaus}
+% Schaut ins Codebook des ESS und überlegt welches Skalenniveau die folgenden Variablen haben:
+% 
+%   \begin{itemize}
+%     \item stfdem  
+%     \item[$\Rightarrow$] ordinal/pseudo-metrisch
+%     \item agea  
+%     \item[$\Rightarrow$] metrisch  
+%     \item region  
+%     \item[$\Rightarrow$] nominal 
+%     \item ppltrst  
+%     \item[$\Rightarrow$] ordinal/pseudo-metrisch 
+%     \item polintr 
+%     \item[$\Rightarrow$] ordinal  
+%   \end{itemize}
+% 
+% \end{frame}
 
 \begin{frame}{Welche Arten von Plots kennt ihr noch?}
   \begin{itemize}
@@ -406,19 +409,19 @@ ggplot(essat,
   \end{center}
 \end{frame}
 
-\section{Lab task}
+% \section{Lab task}
 
-\begin{frame}{Grafiken erstellen}
-Erstellt für folgende Variablen jeweils eine passende grafische Darstellung.
-
-  \begin{abclist}
-    \item \textit{stfgov}
-    \item \textit{eduyrs}
-    \item \textit{vote}
-    \item \textit{vote, sgnptit}
-    \item \textit{ppltrst, stfgov, region}
-  \end{abclist}
-\end{frame}
+% \begin{frame}{Grafiken erstellen}
+% Erstellt für folgende Variablen jeweils eine passende grafische Darstellung.
+% 
+%   \begin{abclist}
+%     \item \textit{stfgov}
+%     \item \textit{eduyrs}
+%     \item \textit{vote}
+%     \item \textit{vote, sgnptit}
+%     \item \textit{ppltrst, stfgov, region}
+%   \end{abclist}
+% \end{frame}
 
 %Final Slide
 \section{Wir sehen uns in zwei Wochen!}
