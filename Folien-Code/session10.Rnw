@@ -5,7 +5,7 @@
 % Title etc.
 \title{Lineare Regression}
 \subtitle{Analyse politischer Unterstützung in der quantitativen Forschungspraxis}
-\date{21. Januar 2022}
+\date{04. Februar 2022}
 \author{B. Philipp Kleer}
 \institute{Institut für Politikwissenschaft | Justus-Liebig-Universität Gießen}
 
@@ -545,8 +545,8 @@ Berechnet eine lineare Regression, die folgendes erfüllt:
 
   \begin{nolist}
     \item mind. 5 unabhängige Variablen gesamt
-    \item mind. 2 unabhängige Variablen (pseudo-)metrisches Skalenniveau
-    \item mind. 2 unabhängige Variablen kategorielles Skalenniveau
+    \item davon mind. 2 unabhängige Variablen (pseudo-)metrisches Skalenniveau
+    \item davon mind. 2 unabhängige Variablen kategorielles Skalenniveau
   \end{nolist}
 
   Stellt vor Beginn der Analyse Vermutungen über die Wirkung der uV’s auf!
