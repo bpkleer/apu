@@ -95,5 +95,3 @@ Dann eine ```.rnw```-Datei öffnen und in der Leiste wird sichtbar, dass **tinyt
 In der Datei **vorlage.rnw** sind die üblichen Anwendungsfälle kurz beschrieben. 
 
 Für *.tex*-Dateien gibt es die Vorlagedatei **vorlage-texmaker.tex**. 
-
-# Test
